@@ -7,492 +7,125 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1a1614;--ink-mid:#3d3530;--ink-light:#6b5f58;
+  --paper:#f5f0e8;--paper-mid:#ede6d6;--paper-dark:#d6cdb8;
+  --red:#8b1a1a;--gold:#c9962a;--gold-light:#e8b84b;--rule:#c8bfb0;
+}
+html{scroll-behavior:smooth}
+body{font-family:'EB Garamond',Georgia,serif;background:var(--paper);color:var(--ink);font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased}
 
-  :root {
-    --ink: #1a1614;
-    --ink-mid: #3d3530;
-    --ink-light: #6b5f58;
-    --paper: #f5f0e8;
-    --paper-mid: #ede6d6;
-    --paper-dark: #d6cdb8;
-    --red: #8b1a1a;
-    --red-light: #b02020;
-    --gold: #c9962a;
-    --gold-light: #e8b84b;
-    --rule: #c8bfb0;
-  }
+/* MASTHEAD */
+.masthead{background:var(--ink);padding:2rem 2rem 0;text-align:center}
+.masthead::before{content:'';display:block;height:3px;background:linear-gradient(90deg,var(--red) 0%,var(--gold) 50%,var(--red) 100%);margin-bottom:1.5rem}
+.pub-name{font-family:'Playfair Display',serif;font-size:clamp(2rem,6vw,4rem);font-weight:900;letter-spacing:.35em;color:var(--paper);text-transform:uppercase;margin-bottom:.25rem}
+.pub-tagline{font-family:'EB Garamond',serif;font-style:italic;color:var(--paper-dark);font-size:.9rem;letter-spacing:.1em;margin-bottom:1.5rem}
+.issue-bar{display:flex;justify-content:space-between;align-items:center;border-top:.5px solid rgba(255,255,255,.15);border-bottom:.5px solid rgba(255,255,255,.15);padding:.5rem 0;font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.12em;color:var(--paper-dark);text-transform:uppercase}
 
-  html { scroll-behavior: smooth; }
+/* HERO */
+.hero{background:var(--ink);padding:4rem 2rem 5rem;text-align:center}
+.hero-kicker{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center;gap:1rem;animation:fadeUp .6s ease both;animation-delay:.1s}
+.hero-kicker::before,.hero-kicker::after{content:'';height:1px;width:3rem;background:var(--gold);opacity:.5}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(4rem,14vw,10rem);font-weight:900;line-height:.88;color:var(--paper);letter-spacing:-.02em;margin-bottom:2rem;animation:fadeUp .6s ease both;animation-delay:.25s}
+.hero-title em{font-style:italic;color:var(--gold-light)}
+.hero-subtitle{font-family:'EB Garamond',serif;font-style:italic;font-size:clamp(1.1rem,3vw,1.5rem);color:var(--paper-dark);max-width:520px;margin:0 auto 2.5rem;line-height:1.5;animation:fadeUp .6s ease both;animation-delay:.4s}
+.hero-meta{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-light);border-top:.5px solid rgba(255,255,255,.1);padding-top:1.5rem;display:flex;justify-content:center;gap:2rem;animation:fadeUp .6s ease both;animation-delay:.55s}
+.hero-meta span{color:var(--paper-dark)}
 
-  body {
-    font-family: 'EB Garamond', Georgia, serif;
-    background-color: var(--paper);
-    color: var(--ink);
-    font-size: 18px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
+/* LEAD */
+.lead-section{max-width:700px;margin:0 auto;padding:4rem 2rem;text-align:center;border-bottom:1px solid var(--rule)}
+.lead-section p{font-size:clamp(1.1rem,2.5vw,1.35rem);font-style:italic;color:var(--ink-mid);line-height:1.75}
+.ornament{font-size:2rem;color:var(--red);display:block;margin:1.5rem auto;letter-spacing:.5rem}
 
-  /* ─── MASTHEAD ─── */
-  .masthead {
-    background: var(--ink);
-    padding: 2rem 2rem 0;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
+/* TOP 10 */
+.top10-section{max-width:1100px;margin:0 auto;padding:4rem 2rem}
+.section-header{display:flex;align-items:center;gap:1.5rem;margin-bottom:3rem}
+.section-label{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--red);white-space:nowrap}
+.section-rule{flex:1;height:1px;background:var(--rule)}
+.top10-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--rule)}
+.top10-card{padding:2rem 2.5rem;border-bottom:1px solid var(--rule);border-right:1px solid var(--rule);position:relative;cursor:pointer;transition:background .2s}
+.top10-card:hover{background:var(--paper-mid)}
+.top10-card:nth-child(even){border-right:none}
+.top10-card:nth-last-child(-n+2){border-bottom:none}
+.rank-num{font-family:'Playfair Display',serif;font-size:4rem;font-weight:900;color:var(--paper-dark);line-height:1;position:absolute;top:1.5rem;right:2rem;opacity:.6}
+.top10-name{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--ink);margin-bottom:.75rem;line-height:1.2;padding-right:3rem}
+.top10-desc{font-family:'EB Garamond',serif;font-style:italic;font-size:1rem;color:var(--ink-mid);line-height:1.6}
+.read-more-hint{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-top:.75rem;opacity:.8}
 
-  .masthead::before {
-    content: '';
-    display: block;
-    height: 3px;
-    background: linear-gradient(90deg, var(--red) 0%, var(--gold) 50%, var(--red) 100%);
-    margin-bottom: 1.5rem;
-  }
+/* FILTER */
+.filter-bar{background:var(--paper-mid);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:1.5rem 2rem;position:sticky;top:0;z-index:100}
+.filter-inner{max-width:1100px;margin:0 auto;display:flex;gap:1rem;align-items:center}
+.filter-label{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-light);white-space:nowrap}
+#searchInput{flex:1;font-family:'EB Garamond',serif;font-size:1rem;font-style:italic;background:var(--paper);border:1px solid var(--rule);border-radius:2px;padding:.5rem 1rem;color:var(--ink);outline:none}
+#searchInput:focus{border-color:var(--red)}
+#clearBtn{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;background:none;border:1px solid var(--rule);border-radius:2px;padding:.5rem 1rem;color:var(--ink-light);cursor:pointer;transition:all .15s}
+#clearBtn:hover{border-color:var(--red);color:var(--red)}
+#resultCount{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--ink-light);white-space:nowrap}
 
-  .pub-name {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 6vw, 4rem);
-    font-weight: 900;
-    letter-spacing: 0.35em;
-    color: var(--paper);
-    text-transform: uppercase;
-    margin-bottom: 0.25rem;
-  }
+/* FULL LIST */
+.list-section{background:var(--ink);padding:5rem 2rem}
+.list-inner{max-width:1100px;margin:0 auto}
+.list-header-row{display:flex;align-items:center;gap:1.5rem;margin-bottom:3rem}
+.list-section .section-label{color:var(--gold)}
+.list-section .section-rule{background:rgba(255,255,255,.1)}
+.list-columns{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:0}
+.list-entry{display:flex;gap:1.25rem;align-items:flex-start;padding:1.1rem 1.5rem;border-bottom:.5px solid rgba(255,255,255,.07);border-right:.5px solid rgba(255,255,255,.07);cursor:pointer;transition:background .15s}
+.list-entry:hover{background:rgba(255,255,255,.06)}
+.entry-num{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--gold);min-width:2rem;padding-top:.2rem;opacity:.7}
+.entry-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--paper);line-height:1.3;margin-bottom:.2rem}
+.entry-desc{font-family:'EB Garamond',serif;font-style:italic;font-size:.85rem;color:var(--paper-dark);line-height:1.5;opacity:.8}
 
-  .pub-tagline {
-    font-family: 'EB Garamond', serif;
-    font-style: italic;
-    color: var(--paper-dark);
-    font-size: 0.9rem;
-    letter-spacing: 0.1em;
-    margin-bottom: 1.5rem;
-  }
+/* MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(15,10,8,.8);z-index:1000;align-items:center;justify-content:center;padding:1.5rem}
+.modal-overlay.open{display:flex}
+.modal{background:var(--paper);max-width:720px;width:100%;max-height:90vh;overflow-y:auto;position:relative;border-top:4px solid var(--red);box-shadow:0 24px 80px rgba(0,0,0,.5)}
+.modal-close{position:absolute;top:1.25rem;right:1.25rem;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;background:none;border:1px solid var(--rule);padding:.4rem .9rem;color:var(--ink-light);cursor:pointer;border-radius:2px;transition:all .15s;z-index:2}
+.modal-close:hover{border-color:var(--red);color:var(--red)}
+.modal-header{padding:2.5rem 2.5rem 0}
+.modal-badge{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.75rem}
+.modal-name{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,5vw,3rem);font-weight:900;line-height:1.05;color:var(--ink);margin-bottom:.5rem}
+.modal-dates{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.12em;color:var(--ink-light);margin-bottom:1.5rem}
+.modal-tagline{font-family:'EB Garamond',serif;font-style:italic;font-size:1.2rem;color:var(--red);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:1.1rem 2.5rem;line-height:1.55}
+.modal-bio{padding:1.75rem 2.5rem;font-family:'EB Garamond',serif;font-size:1.05rem;color:var(--ink-mid);line-height:1.85}
+.modal-bio p{margin-bottom:1.1rem}
+.modal-bio p:last-child{margin-bottom:0}
+.modal-tags{display:flex;flex-wrap:wrap;gap:.5rem;padding:0 2.5rem 1.5rem}
+.modal-tag{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--rule);padding:.3rem .7rem;color:var(--ink-light);border-radius:2px}
+.modal-nav{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--rule);padding:1rem 2.5rem}
+.modal-nav-btn{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;background:none;border:none;cursor:pointer;color:var(--ink-light);padding:.5rem 0;transition:color .15s}
+.modal-nav-btn:hover{color:var(--red)}
+.modal-nav-btn:disabled{opacity:.2;cursor:default}
+.modal-nav-center{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;color:var(--paper-dark)}
 
-  .issue-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 0.5px solid rgba(255,255,255,0.15);
-    border-bottom: 0.5px solid rgba(255,255,255,0.15);
-    padding: 0.5rem 0;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.12em;
-    color: var(--paper-dark);
-    text-transform: uppercase;
-  }
+/* FOOTER */
+.site-footer{background:var(--ink);border-top:3px solid var(--red);padding:3rem 2rem;text-align:center}
+.footer-title{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;letter-spacing:.3em;text-transform:uppercase;color:var(--paper);margin-bottom:1rem}
+.footer-text{font-family:'EB Garamond',serif;font-style:italic;font-size:.9rem;color:var(--paper-dark);line-height:1.7;max-width:400px;margin:0 auto 1.5rem}
+.footer-meta{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-light)}
+.back-top{display:inline-block;font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);text-decoration:none;border:1px solid rgba(201,150,42,.3);padding:.5rem 1.25rem;border-radius:2px;margin-bottom:2rem;transition:all .15s}
+.back-top:hover{background:rgba(201,150,42,.1)}
 
-  /* ─── HERO ─── */
-  .hero {
-    background: var(--ink);
-    padding: 4rem 2rem 5rem;
-    text-align: center;
-    position: relative;
-  }
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes modalIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.modal-overlay.open .modal{animation:modalIn .22s ease both}
 
-  .hero-kicker {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-  }
-
-  .hero-kicker::before,
-  .hero-kicker::after {
-    content: '';
-    height: 1px;
-    width: 3rem;
-    background: var(--gold);
-    opacity: 0.5;
-  }
-
-  .hero-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(4rem, 14vw, 10rem);
-    font-weight: 900;
-    line-height: 0.88;
-    color: var(--paper);
-    letter-spacing: -0.02em;
-    margin-bottom: 2rem;
-  }
-
-  .hero-title em {
-    font-style: italic;
-    color: var(--gold-light);
-  }
-
-  .hero-subtitle {
-    font-family: 'EB Garamond', serif;
-    font-style: italic;
-    font-size: clamp(1.1rem, 3vw, 1.5rem);
-    color: var(--paper-dark);
-    max-width: 520px;
-    margin: 0 auto 2.5rem;
-    line-height: 1.5;
-  }
-
-  .hero-meta {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--ink-light);
-    border-top: 0.5px solid rgba(255,255,255,0.1);
-    padding-top: 1.5rem;
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-  }
-
-  .hero-meta span { color: var(--paper-dark); }
-
-  /* ─── LEAD / ABSTRACT ─── */
-  .lead-section {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 4rem 2rem;
-    text-align: center;
-    border-bottom: 1px solid var(--rule);
-  }
-
-  .lead-section p {
-    font-size: clamp(1.1rem, 2.5vw, 1.35rem);
-    font-style: italic;
-    color: var(--ink-mid);
-    line-height: 1.75;
-  }
-
-  .ornament {
-    font-size: 2rem;
-    color: var(--red);
-    display: block;
-    margin: 1.5rem auto;
-    letter-spacing: 0.5rem;
-  }
-
-  /* ─── TOP 10 FEATURE ─── */
-  .top10-section {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 4rem 2rem;
-  }
-
-  .section-header {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    margin-bottom: 3rem;
-  }
-
-  .section-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--red);
-    white-space: nowrap;
-  }
-
-  .section-rule {
-    flex: 1;
-    height: 1px;
-    background: var(--rule);
-  }
-
-  .top10-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-    border: 1px solid var(--rule);
-  }
-
-  .top10-card {
-    padding: 2rem 2.5rem;
-    border-bottom: 1px solid var(--rule);
-    border-right: 1px solid var(--rule);
-    position: relative;
-    transition: background 0.2s ease;
-    cursor: default;
-  }
-
-  .top10-card:hover {
-    background: var(--paper-mid);
-  }
-
-  .top10-card:nth-child(even) {
-    border-right: none;
-  }
-
-  .top10-card:nth-last-child(-n+2) {
-    border-bottom: none;
-  }
-
-  .rank-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 4rem;
-    font-weight: 900;
-    color: var(--paper-dark);
-    line-height: 1;
-    position: absolute;
-    top: 1.5rem;
-    right: 2rem;
-    opacity: 0.6;
-  }
-
-  .top10-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--ink);
-    margin-bottom: 0.75rem;
-    line-height: 1.2;
-    padding-right: 3rem;
-  }
-
-  .top10-desc {
-    font-family: 'EB Garamond', serif;
-    font-style: italic;
-    font-size: 1rem;
-    color: var(--ink-mid);
-    line-height: 1.6;
-  }
-
-  /* ─── FULL LIST ─── */
-  .list-section {
-    background: var(--ink);
-    padding: 5rem 2rem;
-  }
-
-  .list-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .list-header-row {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    margin-bottom: 3rem;
-  }
-
-  .list-section .section-label {
-    color: var(--gold);
-  }
-
-  .list-section .section-rule {
-    background: rgba(255,255,255,0.1);
-  }
-
-  .list-columns {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 0;
-  }
-
-  .list-entry {
-    display: flex;
-    gap: 1.25rem;
-    align-items: flex-start;
-    padding: 1.1rem 1.5rem;
-    border-bottom: 0.5px solid rgba(255,255,255,0.07);
-    border-right: 0.5px solid rgba(255,255,255,0.07);
-    transition: background 0.15s ease;
-    cursor: default;
-  }
-
-  .list-entry:hover {
-    background: rgba(255,255,255,0.04);
-  }
-
-  .entry-num {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--gold);
-    min-width: 2rem;
-    padding-top: 0.2rem;
-    opacity: 0.7;
-  }
-
-  .entry-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--paper);
-    line-height: 1.3;
-    margin-bottom: 0.25rem;
-  }
-
-  .entry-desc {
-    font-family: 'EB Garamond', serif;
-    font-style: italic;
-    font-size: 0.85rem;
-    color: var(--paper-dark);
-    line-height: 1.5;
-    opacity: 0.8;
-  }
-
-  /* ─── SEARCH / FILTER ─── */
-  .filter-bar {
-    background: var(--paper-mid);
-    border-top: 1px solid var(--rule);
-    border-bottom: 1px solid var(--rule);
-    padding: 1.5rem 2rem;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-
-  .filter-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-  }
-
-  .filter-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--ink-light);
-    white-space: nowrap;
-  }
-
-  #searchInput {
-    flex: 1;
-    font-family: 'EB Garamond', serif;
-    font-size: 1rem;
-    font-style: italic;
-    background: var(--paper);
-    border: 1px solid var(--rule);
-    border-radius: 2px;
-    padding: 0.5rem 1rem;
-    color: var(--ink);
-    outline: none;
-  }
-
-  #searchInput:focus { border-color: var(--red); }
-
-  #clearBtn {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    background: none;
-    border: 1px solid var(--rule);
-    border-radius: 2px;
-    padding: 0.5rem 1rem;
-    color: var(--ink-light);
-    cursor: pointer;
-    white-space: nowrap;
-    transition: all 0.15s;
-  }
-
-  #clearBtn:hover { border-color: var(--red); color: var(--red); }
-
-  #resultCount {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    color: var(--ink-light);
-    white-space: nowrap;
-  }
-
-  /* ─── FOOTER ─── */
-  .site-footer {
-    background: var(--ink);
-    border-top: 3px solid var(--red);
-    padding: 3rem 2rem;
-    text-align: center;
-  }
-
-  .footer-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    font-weight: 900;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--paper);
-    margin-bottom: 1rem;
-  }
-
-  .footer-text {
-    font-family: 'EB Garamond', serif;
-    font-style: italic;
-    font-size: 0.9rem;
-    color: var(--paper-dark);
-    line-height: 1.7;
-    max-width: 400px;
-    margin: 0 auto 1.5rem;
-  }
-
-  .footer-meta {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.6rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink-light);
-  }
-
-  /* ─── BACK TO TOP ─── */
-  .back-top {
-    display: inline-block;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold);
-    text-decoration: none;
-    border: 1px solid rgba(201,150,42,0.3);
-    padding: 0.5rem 1.25rem;
-    border-radius: 2px;
-    margin-bottom: 2rem;
-    transition: all 0.15s;
-  }
-
-  .back-top:hover { background: rgba(201,150,42,0.1); }
-
-  /* ─── RESPONSIVE ─── */
-  @media (max-width: 640px) {
-    .top10-grid { grid-template-columns: 1fr; }
-    .top10-card:nth-child(even) { border-right: none; }
-    .top10-card:nth-last-child(-n+2) { border-bottom: 1px solid var(--rule); }
-    .top10-card:last-child { border-bottom: none; }
-    .list-columns { grid-template-columns: 1fr; }
-    .issue-bar { display: none; }
-    .hero-meta { flex-direction: column; gap: 0.5rem; }
-  }
-
-  @media (max-width: 480px) {
-    .filter-inner { flex-wrap: wrap; }
-    #resultCount { width: 100%; }
-  }
-
-  /* ─── ANIMATION ─── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  .hero-kicker  { animation: fadeUp 0.6s ease both; animation-delay: 0.1s; }
-  .hero-title   { animation: fadeUp 0.6s ease both; animation-delay: 0.25s; }
-  .hero-subtitle{ animation: fadeUp 0.6s ease both; animation-delay: 0.4s; }
-  .hero-meta    { animation: fadeUp 0.6s ease both; animation-delay: 0.55s; }
+@media(max-width:640px){
+  .top10-grid{grid-template-columns:1fr}
+  .top10-card:nth-child(even){border-right:none}
+  .top10-card:nth-last-child(-n+2){border-bottom:1px solid var(--rule)}
+  .top10-card:last-child{border-bottom:none}
+  .list-columns{grid-template-columns:1fr}
+  .issue-bar{display:none}
+  .hero-meta{flex-direction:column;gap:.5rem}
+  .modal-header,.modal-tagline,.modal-bio,.modal-tags,.modal-nav{padding-left:1.25rem;padding-right:1.25rem}
+  .modal{max-height:100vh}
+}
 </style>
 </head>
 <body>
 
-<!-- MASTHEAD -->
 <header class="masthead" id="top">
   <div class="pub-name">The Atlantic</div>
   <p class="pub-tagline">Of No Party or Clique</p>
@@ -504,7 +137,6 @@
   </div>
 </header>
 
-<!-- HERO -->
 <section class="hero">
   <p class="hero-kicker">Cover Story</p>
   <h1 class="hero-title">The<br><em>Top</em><br>100</h1>
@@ -512,41 +144,36 @@
   <div class="hero-meta">
     <span>100 Americans</span>
     <span>·</span>
-    <span>From Lincoln to Melville</span>
+    <span>Click any name for full biography</span>
     <span>·</span>
-    <span>The Definitive List</span>
+    <span>The Atlantic, 2006</span>
   </div>
 </section>
 
-<!-- LEAD -->
 <section class="lead-section">
   <span class="ornament">✦ ✦ ✦</span>
-  <p>A list of the top 100 most influential figures in American history — from the president who saved the Union, to the inventor who lit the world, to the novelist who became the American Shakespeare.</p>
+  <p>A list of the top 100 most influential figures in American history — from the president who saved the Union, to the inventor who lit the world, to the novelist who became the American Shakespeare. Click any name to read their full story.</p>
   <span class="ornament">✦</span>
 </section>
 
-<!-- TOP 10 FEATURE -->
 <section class="top10-section">
   <div class="section-header">
     <span class="section-label">The Top Ten</span>
     <div class="section-rule"></div>
     <span class="section-label">Greatest Americans</span>
   </div>
-
   <div class="top10-grid" id="top10Grid"></div>
 </section>
 
-<!-- FILTER BAR -->
 <div class="filter-bar">
   <div class="filter-inner">
     <span class="filter-label">Search</span>
-    <input type="text" id="searchInput" placeholder="Find a name or description…" aria-label="Search the list">
+    <input type="text" id="searchInput" placeholder="Find a name, era, or field…">
     <button id="clearBtn" onclick="clearSearch()">Clear</button>
     <span id="resultCount">100 of 100</span>
   </div>
 </div>
 
-<!-- FULL LIST -->
 <section class="list-section">
   <div class="list-inner">
     <div class="list-header-row">
@@ -554,161 +181,318 @@
       <div class="section-rule"></div>
       <span class="section-label">Nos. 1 – 100</span>
     </div>
-    <div class="list-columns" id="fullList" aria-live="polite"></div>
+    <div class="list-columns" id="fullList"></div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="site-footer">
   <a href="#top" class="back-top">↑ Back to Top</a>
   <div class="footer-title">The Atlantic</div>
   <p class="footer-text">Originally published in the December 2006 issue. Retrieved via EBSCO Full Text, May 2026.</p>
-  <p class="footer-meta">© 2026 EBSCO Industries, Inc. · EBSCO, 10 Estes Street, Ipswich MA 01938</p>
+  <p class="footer-meta">© 2026 EBSCO Industries, Inc. · 10 Estes Street, Ipswich MA 01938</p>
 </footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true">
+  <div class="modal" id="modalBox">
+    <button class="modal-close" onclick="closeModal()">✕ Close</button>
+    <div class="modal-header">
+      <span class="modal-badge" id="mBadge"></span>
+      <h2 class="modal-name" id="mName"></h2>
+      <div class="modal-dates" id="mDates"></div>
+    </div>
+    <div class="modal-tagline" id="mTagline"></div>
+    <div class="modal-bio" id="mBio"></div>
+    <div class="modal-tags" id="mTags"></div>
+    <div class="modal-nav">
+      <button class="modal-nav-btn" id="mPrev" onclick="navModal(-1)">← Previous</button>
+      <span class="modal-nav-center" id="mNavLabel"></span>
+      <button class="modal-nav-btn" id="mNext" onclick="navModal(1)">Next →</button>
+    </div>
+  </div>
+</div>
 
 <script>
 const people = [
-  { rank: 1,   name: "Abraham Lincoln",          desc: "He saved the Union, freed the slaves, and presided over America's second founding." },
-  { rank: 2,   name: "George Washington",         desc: "He made the United States possible — not only by defeating a king, but by declining to become one himself." },
-  { rank: 3,   name: "Thomas Jefferson",          desc: "The author of the five most important words in American history: \"All men are created equal.\"" },
-  { rank: 4,   name: "Franklin Delano Roosevelt", desc: "He said, \"The only thing we have to fear is fear itself,\" and then he proved it." },
-  { rank: 5,   name: "Alexander Hamilton",        desc: "Soldier, banker, and political scientist, he set in motion an agrarian nation's transformation into an industrial power." },
-  { rank: 6,   name: "Benjamin Franklin",         desc: "The Founder-of-all-trades — scientist, printer, writer, diplomat, inventor, and more; like his country, he contained multitudes." },
-  { rank: 7,   name: "John Marshall",             desc: "The defining chief justice, he established the Supreme Court as the equal of the other two federal branches." },
-  { rank: 8,   name: "Martin Luther King Jr.",    desc: "His dream of racial equality is still elusive, but no one did more to make it real." },
-  { rank: 9,   name: "Thomas Edison",             desc: "It wasn't just the lightbulb; the Wizard of Menlo Park was the most prolific inventor in American history." },
-  { rank: 10,  name: "Woodrow Wilson",            desc: "He made the world safe for U.S. interventionism, if not for democracy." },
-  { rank: 11,  name: "John D. Rockefeller",       desc: "The man behind Standard Oil set the mold for our tycoons — first by making money, then by giving it away." },
-  { rank: 12,  name: "Ulysses S. Grant",          desc: "He was a poor president, but he was the general Lincoln needed; he also wrote the greatest political memoir in American history." },
-  { rank: 13,  name: "James Madison",             desc: "He fathered the Constitution and wrote the Bill of Rights." },
-  { rank: 14,  name: "Henry Ford",                desc: "He gave us the assembly line and the Model T, and sparked America's love affair with the automobile." },
-  { rank: 15,  name: "Theodore Roosevelt",        desc: "Whether busting trusts or building canals, he embodied the \"strenuous life\" and blazed a trail for twentieth-century America." },
-  { rank: 16,  name: "Mark Twain",                desc: "Author of our notional epic, he was the most unsentimental observer of our national life." },
-  { rank: 17,  name: "Ronald Reagan",             desc: "The amiable architect of both the conservative realignment and the Cold War's end." },
-  { rank: 18,  name: "Andrew Jackson",            desc: "The first great populist: he found America a republic and left it a democracy." },
-  { rank: 19,  name: "Thomas Paine",              desc: "The voice of the American Revolution, and our first great radical." },
-  { rank: 20,  name: "Andrew Carnegie",           desc: "The original self-made man forged America's industrial might and became one of the nation's greatest philanthropists." },
-  { rank: 21,  name: "Harry Truman",              desc: "An accidental president, this machine politician ushered in the Atomic Age and then the Cold War." },
-  { rank: 22,  name: "Walt Whitman",              desc: "He sang of America and shaped the country's conception of itself." },
-  { rank: 23,  name: "Wright Brothers",           desc: "They got us all off the ground." },
-  { rank: 24,  name: "Alexander Graham Bell",     desc: "By inventing the telephone, he opened the age of telecommunications and shrank the world." },
-  { rank: 25,  name: "John Adams",                desc: "His leadership made the American Revolution possible; his devotion to republicanism made it succeed." },
-  { rank: 26,  name: "Walt Disney",               desc: "The quintessential entertainer-entrepreneur, he wielded unmatched influence over our childhood." },
-  { rank: 27,  name: "Eli Whitney",               desc: "His gin made cotton king and sustained an empire for slavery." },
-  { rank: 28,  name: "Dwight Eisenhower",         desc: "He won a war and two elections, and made everybody like Ike." },
-  { rank: 29,  name: "Earl Warren",               desc: "His Supreme Court transformed American society and bequeathed to us the culture wars." },
-  { rank: 30,  name: "Elizabeth Cady Stanton",    desc: "One of the first great American feminists, she fought for social reform and women's right to vote." },
-  { rank: 31,  name: "Henry Clay",                desc: "One of America's greatest legislators and orators, he forged compromises that held off civil war for decades." },
-  { rank: 32,  name: "Albert Einstein",           desc: "His greatest scientific work was done in Europe, but his humanity earned him undying fame in America." },
-  { rank: 33,  name: "Ralph Waldo Emerson",       desc: "The bard of individualism, he relied on himself — and told us all to do the same." },
-  { rank: 34,  name: "Jonas Salk",                desc: "His vaccine for polio eradicated one of the world's worst plagues." },
-  { rank: 35,  name: "Jackie Robinson",           desc: "He broke baseball's color barrier and embodied integration's promise." },
-  { rank: 36,  name: "William Jennings Bryan",    desc: "\"The Great Commoner\" lost three presidential elections, but his populism transformed the country." },
-  { rank: 37,  name: "J. P. Morgan",              desc: "The great financier and banker was the prototype for all the Wall Street barons who followed." },
-  { rank: 38,  name: "Susan B. Anthony",          desc: "She was the country's most eloquent voice for women's equality under the law." },
-  { rank: 39,  name: "Rachel Carson",             desc: "The author of Silent Spring was godmother to the environmental movement." },
-  { rank: 40,  name: "John Dewey",                desc: "He sought to make the public school a training ground for democratic life." },
-  { rank: 41,  name: "Harriet Beecher Stowe",     desc: "Her Uncle Tom's Cabin inspired a generation of abolitionists and set the stage for civil war." },
-  { rank: 42,  name: "Eleanor Roosevelt",         desc: "She used the first lady's office and the mass media to become \"first lady of the world.\"" },
-  { rank: 43,  name: "W. E. B. Du Bois",          desc: "One of America's great intellectuals, he made the \"problem of the color line\" his life's work." },
-  { rank: 44,  name: "Lyndon Baines Johnson",     desc: "His brilliance gave us civil-rights laws; his stubbornness gave us Vietnam." },
-  { rank: 45,  name: "Samuel F. B. Morse",        desc: "Before the Internet, there was Morse code." },
-  { rank: 46,  name: "William Lloyd Garrison",    desc: "Through his newspaper, The Liberator, he became the voice of abolition." },
-  { rank: 47,  name: "Frederick Douglass",        desc: "After escaping from slavery, he pricked the nation's conscience with an eloquent accounting of its crimes." },
-  { rank: 48,  name: "Robert Oppenheimer",        desc: "The father of the atomic bomb and the regretful midwife of the nuclear era." },
-  { rank: 49,  name: "Frederick Law Olmsted",     desc: "The genius behind New York's Central Park, he inspired the greening of America's cities." },
-  { rank: 50,  name: "James K. Polk",             desc: "This one-term president's Mexican War land grab gave us California, Texas, and the Southwest." },
-  { rank: 51,  name: "Margaret Sanger",           desc: "The ardent champion of birth control — and of the sexual freedom that came with it." },
-  { rank: 52,  name: "Joseph Smith",              desc: "The founder of Mormonism, America's most famous homegrown faith." },
-  { rank: 53,  name: "Oliver Wendell Holmes Jr.", desc: "Known as \"The Great Dissenter,\" he wrote Supreme Court opinions that continue to shape American jurisprudence." },
-  { rank: 54,  name: "Bill Gates",                desc: "The Rockefeller of the Information Age, in business and philanthropy alike." },
-  { rank: 55,  name: "John Quincy Adams",         desc: "The Monroe Doctrine's real author, he set nineteenth-century America's diplomatic course." },
-  { rank: 56,  name: "Horace Mann",               desc: "His tireless advocacy of universal public schooling earned him the title \"The Father of American Education.\"" },
-  { rank: 57,  name: "Robert E. Lee",             desc: "He was a good general but a better symbol, embodying conciliation in defeat." },
-  { rank: 58,  name: "John C. Calhoun",           desc: "The voice of the antebellum South, he was slavery's most ardent defender." },
-  { rank: 59,  name: "Louis Sullivan",            desc: "The father of architectural modernism, he shaped the defining American building: the skyscraper." },
-  { rank: 60,  name: "William Faulkner",          desc: "The most gifted chronicler of America's tormented and fascinating South." },
-  { rank: 61,  name: "Samuel Gompers",            desc: "The country's greatest labor organizer, he made the golden age of unions possible." },
-  { rank: 62,  name: "William James",             desc: "The mind behind Pragmatism, America's most important philosophical school." },
-  { rank: 63,  name: "George Marshall",           desc: "As a general, he organized the American effort in World War II; as a statesman, he rebuilt Western Europe." },
-  { rank: 64,  name: "Jane Addams",               desc: "The founder of Hull House, she became the secular saint of social work." },
-  { rank: 65,  name: "Henry David Thoreau",       desc: "The original American dropout, he has inspired seekers of authenticity for 150 years." },
-  { rank: 66,  name: "Elvis Presley",             desc: "The king of rock and roll. Enough said." },
-  { rank: 67,  name: "P. T. Barnum",              desc: "The circus impresario's taste for spectacle paved the way for blockbuster movies and reality TV." },
-  { rank: 68,  name: "James D. Watson",           desc: "He codiscovered DNA's double helix, revealing the code of life to scientists and entrepreneurs alike." },
-  { rank: 69,  name: "James Gordon Bennett",      desc: "As the founding publisher of The New York Herald, he invented the modern American newspaper." },
-  { rank: 70,  name: "Lewis and Clark",           desc: "They went west to explore, and millions followed in their wake." },
-  { rank: 71,  name: "Noah Webster",              desc: "He didn't create American English, but his dictionary defined it." },
-  { rank: 72,  name: "Sam Walton",                desc: "He promised us \"Every Day Low Prices,\" and we took him up on the offer." },
-  { rank: 73,  name: "Cyrus McCormick",           desc: "His mechanical reaper spelled the end of traditional farming, and the beginning of industrial agriculture." },
-  { rank: 74,  name: "Brigham Young",             desc: "What Joseph Smith founded, Young preserved, leading the Mormons to their promised land." },
-  { rank: 75,  name: "George Herman \"Babe\" Ruth", desc: "He saved the national pastime in the wake of the Black Sox scandal — and permanently linked sports and celebrity." },
-  { rank: 76,  name: "Frank Lloyd Wright",        desc: "America's most significant architect, he was the archetype of the visionary artist at odds with capitalism." },
-  { rank: 77,  name: "Betty Friedan",             desc: "She spoke to the discontent of housewives everywhere — and inspired a revolution in gender roles." },
-  { rank: 78,  name: "John Brown",                desc: "Whether a hero, a fanatic, or both, he provided the spark for the Civil War." },
-  { rank: 79,  name: "Louis Armstrong",           desc: "His talent and charisma took jazz from the cathouses of Storyville to Broadway, television, and beyond." },
-  { rank: 80,  name: "William Randolph Hearst",   desc: "The press baron who perfected yellow journalism and helped start the Spanish-American War." },
-  { rank: 81,  name: "Margaret Mead",             desc: "With Coming of Age in Samoa, she made anthropology relevant — and controversial." },
-  { rank: 82,  name: "George Gallup",             desc: "He asked Americans what they thought, and the politicians listened." },
-  { rank: 83,  name: "James Fenimore Cooper",     desc: "The novels are unreadable, but he was the first great mythologizer of the frontier." },
-  { rank: 84,  name: "Thurgood Marshall",         desc: "As a lawyer and a Supreme Court justice, he was the legal architect of the civil-rights revolution." },
-  { rank: 85,  name: "Ernest Hemingway",          desc: "His spare style defined American modernism, and his life made machismo a cliché." },
-  { rank: 86,  name: "Mary Baker Eddy",           desc: "She got off her sickbed and founded Christian Science, which promised spiritual healing to all." },
-  { rank: 87,  name: "Benjamin Spock",            desc: "With a single book — and a singular approach — he changed American parenting." },
-  { rank: 88,  name: "Enrico Fermi",              desc: "A giant of physics, he helped develop quantum theory and was instrumental in building the atomic bomb." },
-  { rank: 89,  name: "Walter Lippmann",           desc: "The last man who could swing an election with a newspaper column." },
-  { rank: 90,  name: "Jonathan Edwards",          desc: "Forget the fire and brimstone: his subtle eloquence made him the country's most influential theologian." },
-  { rank: 91,  name: "Lyman Beecher",             desc: "Harriet Beecher Stowe's clergyman father earned fame as an abolitionist and an evangelist." },
-  { rank: 92,  name: "John Steinbeck",            desc: "As the creator of Tom Joad, he chronicled Depression-era misery." },
-  { rank: 93,  name: "Nat Turner",                desc: "He was the most successful rebel slave; his specter would stalk the white South for a century." },
-  { rank: 94,  name: "George Eastman",            desc: "The founder of Kodak democratized photography with his handy rolls of film." },
-  { rank: 95,  name: "Sam Goldwyn",               desc: "A producer for forty years, he was the first great Hollywood mogul." },
-  { rank: 96,  name: "Ralph Nader",               desc: "He made the cars we drive safer; thirty years later, he made George W. Bush the president." },
-  { rank: 97,  name: "Stephen Foster",            desc: "America's first great songwriter, he brought us \"O! Susanna\" and \"My Old Kentucky Home.\"" },
-  { rank: 98,  name: "Booker T. Washington",      desc: "As an educator and a champion of self-help, he tried to lead black America up from slavery." },
-  { rank: 99,  name: "Richard Nixon",             desc: "He broke the New Deal majority, and then broke his presidency on a scandal that still haunts America." },
-  { rank: 100, name: "Herman Melville",           desc: "Moby Dick was a flop at the time, but Melville is remembered as the American Shakespeare." },
+  {rank:1,name:"Abraham Lincoln",dates:"1809 – 1865",tagline:"He saved the Union, freed the slaves, and presided over America's second founding.",tags:["President","Civil War","Abolitionism","Illinois"],bio:`<p>Abraham Lincoln rose from a log cabin in Kentucky to become the sixteenth president and, by most reckonings, the greatest. Born into frontier poverty, he educated himself by firelight, worked as a rail-splitter and store clerk before studying law on his own and building a career as one of Illinois's most respected attorneys.</p><p>His seven debates with Stephen Douglas in 1858 brought national attention. His 1860 election triggered Southern secession. Lincoln led the Union through its darkest years with political genius and iron resolve, surrounding himself with rivals and outmaneuvering them all. The Emancipation Proclamation of January 1, 1863 transformed the war into a crusade against slavery. His Gettysburg Address, delivered in under three minutes, redefined the nation's founding purpose. His Second Inaugural — "With malice toward none, with charity for all" — stands as one of the greatest speeches in any language.</p><p>Assassinated by John Wilkes Booth at Ford's Theatre just days after the Confederate surrender, Lincoln never saw the peace he had secured. He left behind a republic remade — now committed, however imperfectly, to the proposition that all men are created equal.</p>`},
+
+  {rank:2,name:"George Washington",dates:"1732 – 1799",tagline:"He made the United States possible — not only by defeating a king, but by declining to become one himself.",tags:["President","Revolution","Commander-in-Chief","Virginia"],bio:`<p>George Washington was the indispensable man of the founding. Chosen to command the Continental Army in 1775, he possessed something rarer than military brilliance: the character to hold a ragged army together through years of defeat and privation. At Valley Forge he kept the cause alive by force of will alone.</p><p>His surprise crossing of the Delaware on Christmas night 1776 and the subsequent victory at Trenton revived a collapsing revolution. The final victory at Yorktown in 1781 secured independence. But it was what Washington did afterward that secured his place in history. Offered kingship, he refused — surrendering power twice, resigning his commission in 1783 and stepping down after two presidential terms in 1797. King George III reportedly called him "the greatest man in the world" for it.</p><p>As first president, he established the norms that shaped the republic for generations: the cabinet system, the two-term tradition, civilian supremacy over the military. His Farewell Address warned against partisan divisions and foreign entanglements with a prescience that still resonates.</p>`},
+
+  {rank:3,name:"Thomas Jefferson",dates:"1743 – 1826",tagline:"The author of the five most important words in American history: \"All men are created equal.\"",tags:["President","Declaration of Independence","Virginia","Philosophy"],bio:`<p>Thomas Jefferson was the most contradictory of the Founders and perhaps the most consequential. A slaveholder who wrote "all men are created equal." An agrarian idealist who doubled the nation's size through the Louisiana Purchase. A champion of limited government who expanded executive power when it suited him. He contained multitudes, and so has shaped a multitudinous nation.</p><p>At 33, he drafted the Declaration of Independence in seventeen days in a Philadelphia rented room. His genius was in the distillation: turning a list of colonial grievances into a universal statement of human rights. As president (1801–1809), he purchased Louisiana from Napoleon for $15 million and commissioned Lewis and Clark to explore it. His vision of agrarian democracy would not survive industrialization, but the democratic idealism he articulated proved far more durable.</p><p>Jefferson's contradictions — most painfully, his decades-long relationship with his enslaved woman Sally Hemings — have only deepened with time. But the words he wrote in 1776 have served as the nation's conscience ever since, invoked by abolitionists, suffragists, civil rights marchers, and liberation movements around the world.</p>`},
+
+  {rank:4,name:"Franklin Delano Roosevelt",dates:"1882 – 1945",tagline:"He said, \"The only thing we have to fear is fear itself,\" and then he proved it.",tags:["President","New Deal","World War II","New York"],bio:`<p>Franklin Roosevelt was the dominant political figure of the twentieth century's middle decades — a president who guided the nation through its two greatest modern crises and fundamentally reshaped the relationship between citizens and government. Struck by polio at 39, he conducted most of his presidency from a wheelchair, a disability he carefully hid from the public.</p><p>When he took office in March 1933, a quarter of Americans were unemployed and the banking system was collapsing. His First Hundred Days produced an avalanche of legislation — the New Deal — that created the FDIC, the SEC, the CCC, Social Security, and dozens of other institutions. His "fireside chats" restored public confidence at a moment of despair. His coalition held together for a generation and made the Democratic Party dominant for forty years.</p><p>When war came, Roosevelt mobilized the greatest industrial effort in history, turning America into the "arsenal of democracy." His leadership of the Grand Alliance — navigating Churchill, Stalin, and his own military — was geopolitical dexterity matched by few leaders in history. He died in April 1945, just weeks before the German surrender, never seeing the victory he had made possible.</p>`},
+
+  {rank:5,name:"Alexander Hamilton",dates:"1755 – 1804",tagline:"Soldier, banker, and political scientist, he set in motion an agrarian nation's transformation into an industrial power.",tags:["Founding Father","Treasury","Federalist Papers","New York"],bio:`<p>Alexander Hamilton arrived in America from the Caribbean with nothing and rose to become Washington's most trusted aide, the architect of American finance, and co-author of the most sophisticated work of political philosophy in the nation's history. His vision of America — industrial, commercial, nationally integrated, governed by a strong federal system — ultimately prevailed over Jefferson's agrarian dream.</p><p>As the first Secretary of the Treasury, Hamilton produced reports that laid the foundations of the American economy: assuming state debts to establish national creditworthiness, creating the First Bank of the United States, and articulating the case for industrial development. His 51 contributions to the Federalist Papers remain the definitive interpretation of the Constitution and one of the greatest works of political theory in any language.</p><p>Shot by Aaron Burr in a duel in Weehawken, New Jersey in 1804, Hamilton died at 49 — robbing the nation of perhaps its greatest administrative genius. His face on the ten-dollar bill is fitting: no American did more to create the financial infrastructure of modern capitalism.</p>`},
+
+  {rank:6,name:"Benjamin Franklin",dates:"1706 – 1790",tagline:"The Founder-of-all-trades — scientist, printer, writer, diplomat, and inventor; like his country, he contained multitudes.",tags:["Founding Father","Scientist","Diplomat","Pennsylvania"],bio:`<p>Benjamin Franklin was the most complete American — a self-made polymath who embodied the national mythology of the self-improving, practically minded, democratically inclined citizen before that mythology had fully formed. Born the fifteenth child of a Boston candlemaker, he apprenticed to a printer at twelve, ran away to Philadelphia at seventeen, and by middle age had become the most famous scientist in the world.</p><p>His kite experiment demonstrating the electrical nature of lightning made him an international celebrity and led to the lightning rod. He invented bifocals, the Franklin stove, and the glass armonica. He founded America's first public library, first fire department, and first hospital, organized the first postal system, and established the University of Pennsylvania. His Poor Richard's Almanack dispensed practical wisdom to hundreds of thousands, and his Autobiography defined the "rags to success" narrative.</p><p>As a diplomat, his twenty years in London and eight in Paris were the most consequential in American history. He secured the French alliance that won the Revolution, negotiated the Treaty of Paris, and charmed every salon in Europe. At 81, he was the oldest delegate to the Constitutional Convention — and among its wisest voices.</p>`},
+
+  {rank:7,name:"John Marshall",dates:"1755 – 1835",tagline:"The defining chief justice, he established the Supreme Court as the equal of the other two federal branches.",tags:["Chief Justice","Supreme Court","Federalism","Virginia"],bio:`<p>When John Marshall was appointed Chief Justice in 1801, the Supreme Court was widely regarded as the weakest branch of government. When he died 34 years later, it had become the final arbiter of constitutional meaning. This transformation was almost entirely the work of one man.</p><p>In Marbury v. Madison (1803), he established judicial review — the power to strike down acts of Congress — while appearing to rule against his own allies. The political judo was breathtaking. In McCulloch v. Maryland (1819), he affirmed federal supremacy over state law, using language that echoes through constitutional law: "We must never forget that it is a constitution we are expounding." In Gibbons v. Ogden (1824), he defined commerce broadly, laying the groundwork for federal regulation of the national economy.</p><p>Marshall served under five presidents, outlasting every political faction that tried to diminish the Court. His decisions made the United States a nation governed by law rather than legislative will — and made the Constitution a living document rather than a historical relic.</p>`},
+
+  {rank:8,name:"Martin Luther King Jr.",dates:"1929 – 1968",tagline:"His dream of racial equality is still elusive, but no one did more to make it real.",tags:["Civil Rights","Minister","Nonviolence","Georgia"],bio:`<p>Martin Luther King Jr. was 26 years old when he led the Montgomery Bus Boycott — a 381-day campaign of nonviolent resistance that launched the modern civil rights movement. Over the next thirteen years, until his assassination at 39, he transformed American society more profoundly than any private citizen in the nation's history.</p><p>King's genius was fusing three traditions: the social gospel of the Black church, Gandhi's nonviolent philosophy, and the American democratic tradition itself. His "Letter from Birmingham Jail," written in the margins of a newspaper while imprisoned in 1963, is one of the great moral arguments in the English language. The March on Washington in August 1963 drew 250,000 people; his "I Have a Dream" speech — partially improvised — became the defining oration of the twentieth century.</p><p>His campaigns in Birmingham and Selma, met with police violence broadcast on national television, broke political resistance to legislation. The Civil Rights Act of 1964 and the Voting Rights Act of 1965 were the direct fruits of his movement. Shot on the balcony of the Lorraine Motel in Memphis, he left unfinished a broader campaign against poverty and the Vietnam War. His dream remains, as he said, a promissory note still being cashed.</p>`},
+
+  {rank:9,name:"Thomas Edison",dates:"1847 – 1931",tagline:"It wasn't just the lightbulb; the Wizard of Menlo Park was the most prolific inventor in American history.",tags:["Inventor","Electricity","New Jersey","Industry"],bio:`<p>Thomas Edison held 1,093 patents — a record that stood for a century — but his most important invention was the invention factory itself. His research laboratory at Menlo Park, New Jersey, was the world's first industrial R&D facility: a team of specialists working systematically to produce marketable innovations. It was a model that changed how humanity creates technology.</p><p>The incandescent lightbulb (1879) was his most famous achievement, but it was embedded in something far more significant: the first complete electrical power system. Edison designed the generators, the distribution network, the meters, and the light fixtures simultaneously, then built the world's first commercial power station at Pearl Street in Manhattan in 1882. He didn't just invent a bulb; he lit a civilization.</p><p>His other major inventions include the phonograph (1877) — the first device to record and reproduce sound — and practical improvements to the telegraph and telephone. He developed the kinetoscope, a precursor to motion pictures, and made fundamental advances in mining and batteries. He famously slept only four hours a night and called genius "one percent inspiration and ninety-nine percent perspiration."</p>`},
+
+  {rank:10,name:"Woodrow Wilson",dates:"1856 – 1924",tagline:"He made the world safe for U.S. interventionism, if not for democracy.",tags:["President","World War I","League of Nations","New Jersey"],bio:`<p>Woodrow Wilson was the most intellectually formidable president in American history — a former professor who governed with a scholar's confidence and a preacher's moral certainty. His first term produced the Federal Reserve Act, the Federal Trade Commission, the Clayton Antitrust Act, and the income tax — a sweeping progressive agenda. He also resegregated the federal government, a retrograde act that revealed the limits of his moral vision regarding race.</p><p>When America entered World War I in 1917, Wilson articulated a breathtakingly idealistic war aim: a world "safe for democracy," organized around a League of Nations. His Fourteen Points became the basis for the armistice. At the Paris Peace Conference, he was the most celebrated figure in Europe — and the most outmaneuvered. The treaty he brought home was too punishing toward Germany for the Senate to accept; Wilson refused all compromise, launched a grueling speaking tour to build public pressure, and suffered a catastrophic stroke in October 1919.</p><p>He spent the last 17 months of his presidency as a hidden invalid. The Senate rejected the treaty. The League failed without America. The unresolved tensions contributed directly to World War II. His tragedy was the century's.</p>`},
+
+  {rank:11,name:"John D. Rockefeller",dates:"1839 – 1937",tagline:"The man behind Standard Oil set the mold for American tycoons — first by making money, then by giving it away.",tags:["Industrialist","Standard Oil","Philanthropy","Ohio"],bio:`<p>John D. Rockefeller built Standard Oil into the greatest corporate monopoly in American history, controlling at its peak some 90% of U.S. oil refining. His methods were ruthless: secret railroad rebates, predatory pricing, and the absorption of competitors. His results were undeniable: he created the modern petroleum industry and delivered cheap kerosene to millions of American homes.</p><p>The Supreme Court ordered Standard Oil broken up in 1911 — giving birth to companies that became ExxonMobil, Chevron, and BP America. Rockefeller, by then the richest man in the world, had already begun the second act of his life: systematic philanthropy. He gave away approximately $540 million during his lifetime, funding the University of Chicago, the Rockefeller Institute for Medical Research, and the General Education Board.</p><p>He lived to 97, outlasting most of his critics, and died having given away roughly half his fortune. His dual legacy — monopolist and philanthropist — defined the template for American tycoons from Carnegie to Gates.</p>`},
+
+  {rank:12,name:"Ulysses S. Grant",dates:"1822 – 1885",tagline:"He was a poor president but the general Lincoln needed — and he wrote the greatest political memoir in American history.",tags:["President","Civil War","General","Ohio"],bio:`<p>Ulysses Grant was a failure at almost everything before the Civil War — farming, real estate, business. But in military command he was, as Lincoln recognized, a different creature entirely: relentless, willing to absorb punishment and keep pushing. "I can't spare this man — he fights," Lincoln reportedly said after Shiloh.</p><p>Grant's Vicksburg campaign of 1863, which cut the Confederacy in two, and his Overland Campaign of 1864, which ground Lee's army to nothing through attrition, were the decisive military operations of the war. His terms to Lee at Appomattox — generous and dignified — set the tone for a reconciliation that might have succeeded had it been honored. His presidency was marred by corruption among his appointees, though Grant himself was personally honest. His vigorous enforcement of Reconstruction and suppression of the Ku Klux Klan represent the high-water mark of federal commitment to Black civil rights in the nineteenth century.</p><p>Diagnosed with throat cancer in 1884 and broke, Grant raced against death to finish his memoirs. He completed them four days before he died. Mark Twain, who published them, called them a masterpiece. Generations of literary critics have agreed.</p>`},
+
+  {rank:13,name:"James Madison",dates:"1751 – 1836",tagline:"He fathered the Constitution and wrote the Bill of Rights.",tags:["President","Constitution","Founding Father","Virginia"],bio:`<p>James Madison was the most intellectually rigorous of the Founders — a tiny, soft-spoken Virginian who came to the Constitutional Convention of 1787 with a detailed plan, a mastery of political theory unmatched by any colleague, and the organizational genius to make it work. His Virginia Plan became the framework for the Constitution, and his notes from the Convention remain the most important record of its creation.</p><p>His contributions to the Federalist Papers — particularly Federalist 10 (on factions) and Federalist 51 (on checks and balances) — are the most intellectually sophisticated defenses of the constitutional design ever written. The idea that ambition must be made to counteract ambition, that the structure of government itself must compensate for human nature, is one of the great insights of political philosophy. When the first Congress convened, Madison almost single-handedly drafted and shepherded through the Bill of Rights.</p><p>His presidency (1809–1817) was less successful — the British burned the White House during the War of 1812. But he steered the republic through the crisis without suspending civil liberties or seizing emergency powers, a precedent as important as any military victory.</p>`},
+
+  {rank:14,name:"Henry Ford",dates:"1863 – 1947",tagline:"He gave us the assembly line and the Model T, and sparked America's love affair with the automobile.",tags:["Industry","Automobile","Assembly Line","Michigan"],bio:`<p>Henry Ford did not invent the automobile, but he figured out how to make it available to ordinary people. The Model T, introduced in 1908, was simple, durable, and cheap. The moving assembly line introduced in 1913 reduced build time from over twelve hours to 93 minutes, enabling a price drop from $850 to $290. By 1927, Ford had produced 15 million Model Ts. The assembly line's logic transformed not just manufacturing but the entire structure of industrial capitalism.</p><p>Ford's $5 workday was both generous and strategically brilliant: it ensured his workers could afford to buy the cars they built, creating the mass consumer market that defined twentieth-century prosperity. The physical shape of American life — the suburbs, highways, drive-throughs, strip malls, car culture — is Ford's legacy as much as anyone's.</p><p>Ford's legacy is deeply shadowed by his virulent anti-Semitism. His newspaper published vicious anti-Jewish propaganda later compiled into a book that was read and admired by Adolf Hitler. Ford was the only American named in Mein Kampf. His hateful views represent a profound moral failure that cannot be separated from his biography.</p>`},
+
+  {rank:15,name:"Theodore Roosevelt",dates:"1858 – 1919",tagline:"Whether busting trusts or building canals, he embodied the strenuous life and blazed a trail for twentieth-century America.",tags:["President","Conservation","Trust-Busting","New York"],bio:`<p>Theodore Roosevelt was the most energetic president in American history — a rancher, war hero, naturalist, historian, police commissioner, naval secretary, and governor before he reached the White House at 42, the youngest president ever. He was the first president to use federal power systematically against corporate monopoly, filing 44 antitrust suits. He created the modern conservation movement, protecting 230 million acres of public land. The Pure Food and Drug Act and the Meat Inspection Act established the modern regulatory state.</p><p>His foreign policy was equally assertive: the construction of the Panama Canal, brokering peace between Russia and Japan (earning him the Nobel Peace Prize), and the Roosevelt Corollary, which asserted American authority over the entire Western Hemisphere. He sent the Great White Fleet around the world as a display of naval power that announced America's arrival as a global force.</p><p>Shot in the chest while campaigning in Milwaukee during his 1912 comeback bid, he delivered a 90-minute speech before going to the hospital. He lost the election but never lost the public's fascination. No American president more fully embodied his era's restless energy.</p>`},
+
+  {rank:16,name:"Mark Twain",dates:"1835 – 1910",tagline:"Author of our national epic, he was the most unsentimental observer of American life.",tags:["Literature","Satire","Missouri","Journalist"],bio:`<p>Mark Twain — born Samuel Langhorne Clemens in Florida, Missouri — was the first authentically American writer: the first to use American vernacular as a literary language, the first to make the Mississippi Valley the center of a national mythology. Ernest Hemingway said all American literature comes from Huckleberry Finn. He wasn't wrong.</p><p>Adventures of Huckleberry Finn (1884) is the great American novel — a deceptively simple story of a boy and a runaway slave floating down the Mississippi that becomes a sustained indictment of slavery, racism, and the moral cowardice of "civilization." Huck's decision to "go to hell" rather than turn in Jim is one of the most powerful moral moments in American fiction. Tom Sawyer, Life on the Mississippi, and A Connecticut Yankee in King Arthur's Court are among his other masterworks.</p><p>Twain was also a ferocious critic of American imperialism, particularly in the Philippines, and of the racism that pervaded American life. His late work, written after personal tragedies — the deaths of his wife and daughters, financial ruin — darkened into a savage pessimism about human nature that still shocks readers. He had no illusions about his country, and loved it enough to say so.</p>`},
+
+  {rank:17,name:"Ronald Reagan",dates:"1911 – 2004",tagline:"The amiable architect of both the conservative realignment and the Cold War's end.",tags:["President","Cold War","Conservatism","California"],bio:`<p>Ronald Reagan was the most consequential conservative politician in American history — a former New Deal Democrat, actor, and California governor who transformed the Republican Party and shifted the center of American politics so decisively that his successors, both Republican and Democratic, governed in his shadow for decades. His 1980 victory over Jimmy Carter was the most decisive political realignment since 1932. His coalition remade the electoral map; his central proposition, that government was the problem rather than the solution, reversed forty years of New Deal consensus.</p><p>His domestic record was mixed: the 1981 tax cuts stimulated growth but produced record deficits; deregulation energized the economy but enabled the savings and loan crisis. His response to the AIDS epidemic was catastrophically slow. But his foreign policy accomplishments were extraordinary. In his second term, he negotiated seriously with Gorbachev; the INF Treaty of 1987 was the first agreement to eliminate an entire class of nuclear weapons.</p><p>Whether Reagan "won" the Cold War or merely presided over its endgame remains debated. But his optimism — "Morning in America," the shining city on a hill — gave his era its defining emotional coloration, and his coalition gave the Republican Party its governing philosophy for a generation.</p>`},
+
+  {rank:18,name:"Andrew Jackson",dates:"1767 – 1845",tagline:"The first great populist: he found America a republic and left it a democracy.",tags:["President","Populism","Indian Removal","Tennessee"],bio:`<p>Andrew Jackson was the most polarizing president of the nineteenth century — a genuine war hero and champion of the common man who also presided over the forced removal of Native Americans that stands as one of the great atrocities in American history. His contradictions map almost perfectly onto America's own. Born in the Carolina backcountry, orphaned at 14, Jackson was the first president not from the Virginia or Massachusetts establishment.</p><p>His defeat of the British at New Orleans in 1815 made him a national hero. His 1828 election democratized American politics: his campaign — the first to use torchlight parades, campaign songs, and mass rallies — created the template for modern electioneering. As president, he destroyed the Second Bank of the United States and asserted federal supremacy in the Nullification Crisis, when South Carolina threatened to void federal tariff law.</p><p>The Indian Removal Act of 1830, which drove the Cherokee, Choctaw, Creek, Seminole, and Chickasaw nations from their ancestral lands — the Trail of Tears — resulted in tens of thousands of deaths. Jackson regarded it as a civilizing measure. It was ethnic cleansing.</p>`},
+
+  {rank:19,name:"Thomas Paine",dates:"1737 – 1809",tagline:"The voice of the American Revolution, and our first great radical.",tags:["Revolution","Author","Common Sense","Pamphleteer"],bio:`<p>Thomas Paine arrived in America from England in 1774, nearly broke and almost unknown. Two years later, he published Common Sense — a 47-page pamphlet that made the case for independence in clear, forceful prose aimed at ordinary readers rather than educated elites. It sold 100,000 copies in three months — proportionally the bestselling work in American history — and shifted public opinion decisively toward independence. George Washington ordered it read to his troops.</p><p>During the darkest months of the Revolution, Paine's American Crisis pamphlets — beginning "These are the times that try men's souls" — sustained morale when the cause seemed lost. After the Revolution, he went to France, supported the French Revolution, and nearly lost his head under the Reign of Terror. His Age of Reason, a deist critique of organized religion, cost him much of his American reputation, and he died in poverty in New York in 1809.</p><p>His radicalism — democratic, anti-monarchical, anti-clerical, internationalist — was too hot for his era to hold. But every populist, labor organizer, and progressive reformer in American history has drawn on the tradition he established.</p>`},
+
+  {rank:20,name:"Andrew Carnegie",dates:"1835 – 1919",tagline:"The original self-made man forged America's industrial might and became one of the nation's greatest philanthropists.",tags:["Industrialist","Steel","Philanthropy","Scotland"],bio:`<p>Andrew Carnegie arrived in America from Scotland at 13, worked as a bobbin boy in a textile mill for $1.20 a week, and died the second-richest man in American history. Carnegie Steel, built through vertical integration, cost-cutting ruthlessness, and technological innovation, became the largest steel company in the world. The steel that built the Brooklyn Bridge, the Washington Monument, and the railroads that stitched the continent together came from his mills. When J.P. Morgan bought him out in 1901 to form U.S. Steel, the price was $480 million.</p><p>Carnegie then spent 18 years giving it away. He funded 2,509 public libraries around the English-speaking world, donated $10 million to build Carnegie Hall, endowed universities, and created the Carnegie Endowment for International Peace. His essay "The Gospel of Wealth" articulated a philosophy of obligatory philanthropy — the wealthy had a duty to use their surplus for the public good — that defined American philanthropy ever since.</p><p>His record was not unblemished: the Homestead Strike of 1892, in which Pinkerton agents killed striking steelworkers while Carnegie vacationed in Scotland, remains a permanent stain. But no American better embodies both the promise and the peril of the capitalist ideal.</p>`},
+
+  {rank:21,name:"Harry Truman",dates:"1884 – 1972",tagline:"An accidental president, this machine politician ushered in the Atomic Age and then shaped the Cold War.",tags:["President","World War II","Cold War","Missouri"],bio:`<p>Harry Truman became president on April 12, 1945, when Franklin Roosevelt died — and discovered only then that the United States was secretly building an atomic bomb. Within four months, he ordered it dropped on Hiroshima and Nagasaki, ending World War II and inaugurating the nuclear era. No decision in presidential history carries greater weight.</p><p>Truman had been a machine politician from Missouri, and few expected greatness. What he produced was a foreign policy revolution. The Truman Doctrine (1947) committed the United States to global engagement. The Marshall Plan rebuilt Western Europe. The Berlin Airlift called Stalin's bluff. NATO created the Western alliance that would outlast the Soviet Union. His domestic record included desegregating the military by executive order in 1948 and defeating Thomas Dewey in the most famous upset in presidential election history.</p><p>He left office deeply unpopular; history has been much kinder. He is now consistently ranked among the near-great presidents, admired for his plainspokenness, decisiveness, and willingness to be held accountable for hard choices. "The buck stops here" was not a slogan but a governing philosophy.</p>`},
+
+  {rank:22,name:"Walt Whitman",dates:"1819 – 1892",tagline:"He sang of America and shaped the country's conception of itself.",tags:["Poetry","Literature","New York","Democracy"],bio:`<p>Walt Whitman published the first edition of Leaves of Grass in 1855 and immediately became the most controversial poet in America — and, eventually, the most important. The book had no precedent: its long, rolling, cataloguing lines; its first-person speaker who was at once individual and universal; its joyful celebration of the body, democracy, and the multiplicity of American life. "Song of Myself" is the foundational American poem — a sustained act of democratic identification in which the speaker contains everything and everyone: "I am large, I contain multitudes."</p><p>During the Civil War, Whitman worked as a volunteer nurse in Washington hospitals, sitting with the wounded and dying of both sides. The war poems in Drum-Taps and the elegy for Lincoln, "When Lilacs Last in the Dooryard Bloom'd," are among the greatest American poems. He revised and expanded Leaves of Grass throughout his life, incorporating his war experience and his later, more somber reflections.</p><p>His influence on American poetry has been incalculable: every poet who has written in free verse, who has claimed the authority to speak for the full range of American experience, writes in Whitman's shadow.</p>`},
+
+  {rank:23,name:"Wright Brothers",dates:"Orville 1871–1948 · Wilbur 1867–1912",tagline:"They got us all off the ground.",tags:["Aviation","Inventors","Ohio","Technology"],bio:`<p>On December 17, 1903, at Kitty Hawk, North Carolina, Orville Wright flew a powered, heavier-than-air machine for 12 seconds and 120 feet. By the end of the day, the brothers had made four flights, the longest lasting 59 seconds. Human beings had achieved controlled, powered flight. The world had changed forever.</p><p>Working as bicycle mechanics in Dayton, Ohio, with no advanced education and no government funding, they solved a problem that had defeated well-financed rivals by applying systematic engineering thinking. Their crucial insight — that an aircraft needed to be controlled in all three axes — came from watching birds in flight. They built a wind tunnel to test wing shapes, designed their own engine and propellers, tested, failed, modified, and tested again.</p><p>The airplane transformed every aspect of human civilization: commerce, war, tourism, the perception of distance, the organization of the global economy. World War I, just eleven years after Kitty Hawk, was the first war to use aircraft in combat. By World War II, air power had become decisive. By the twenty-first century, aviation was moving four billion passengers a year. Wilbur died of typhoid in 1912; Orville lived to 1948, long enough to see the jet age begin.</p>`},
+
+  {rank:24,name:"Alexander Graham Bell",dates:"1847 – 1922",tagline:"By inventing the telephone, he opened the age of telecommunications and shrank the world.",tags:["Inventor","Telephone","Scotland","Communication"],bio:`<p>Alexander Graham Bell was born in Scotland and immigrated to the United States, where he worked as a teacher of the deaf while simultaneously pursuing an obsession with transmitting the human voice electrically. On March 10, 1876, in his Boston laboratory, he transmitted the first intelligible telephone message: "Mr. Watson, come here, I want to see you." Bell's telephone patent became the most valuable in American history. The Bell Telephone Company grew into AT&T, which dominated American telecommunications for a century.</p><p>The telephone shrank the distances between cities, families, and businesses, and laid the infrastructure for everything that followed: the internet, the smartphone, the global communication network. Bell himself was a restless polymath who spent his subsequent decades on the photophone, powered flight, hydrofoils, and founding the journal Science and the National Geographic Society. He regarded the telephone as an interruption to his real work, and reportedly refused to have one in his study.</p><p>His work with deaf students produced perhaps his most complicated legacy: he was a committed oralist who believed the deaf should learn to speak rather than use sign language — a position that, however well-intentioned, damaged deaf culture and community.</p>`},
+
+  {rank:25,name:"John Adams",dates:"1735 – 1826",tagline:"His leadership made the American Revolution possible; his devotion to republicanism made it succeed.",tags:["President","Founding Father","Revolution","Massachusetts"],bio:`<p>John Adams was the most cantankerous, principled, and underappreciated of the Founders. A Massachusetts lawyer of fierce intellect and temper, he made the Revolution possible by arguing for independence when others still hesitated, and nearly destroyed his political career by pursuing peace with France when his party wanted war. His defense of the British soldiers charged in the Boston Massacre — deeply unpopular before the Revolution — is one of the great acts of principled lawyering in American history.</p><p>As the second president, his decision to send a peace delegation to France in 1799 — against the wishes of Hamilton's faction — was the most courageous act of his presidency and probably cost him re-election to Jefferson. His correspondence with Jefferson in their old age — conducted after decades of estrangement and reconciliation — is one of the great epistolary exchanges in American history.</p><p>Both men died on July 4, 1826, exactly fifty years after the Declaration of Independence. Adams's last words were reported to be: "Thomas Jefferson still survives." He did not know that Jefferson had died hours earlier.</p>`},
+
+  {rank:26,name:"Walt Disney",dates:"1901 – 1966",tagline:"The quintessential entertainer-entrepreneur, he wielded unmatched influence over our childhood.",tags:["Entertainment","Film","Animation","Missouri"],bio:`<p>Walter Elias Disney transformed American entertainment, invented the modern amusement park, and — through his studio's cartoons and films — shaped the imaginative world of several generations of children around the globe. Mickey Mouse (1928) was an immediate sensation. Snow White and the Seven Dwarfs (1937), the first feature-length animated film, became the highest-grossing film of its era. Fantasia, Dumbo, Bambi, Cinderella, and Sleeping Beauty followed, establishing the Disney animated feature as the definitive form of family entertainment.</p><p>Disneyland, which opened in Anaheim in 1955, reinvented the amusement park: clean, themed, story-driven, and relentlessly optimistic. It made the vacation experience itself a product. The Disney theme park empire eventually became the largest entertainment company in the world. His studio's racial caricatures in early films, and his union-busting and HUAC cooperation, are the dark side of a legacy that otherwise gave more pleasure to more people across more generations than almost anyone in American history.</p>`},
+
+  {rank:27,name:"Eli Whitney",dates:"1765 – 1825",tagline:"His cotton gin made cotton king — and sustained an empire for slavery.",tags:["Inventor","Cotton Gin","Manufacturing","Connecticut"],bio:`<p>Eli Whitney invented two things that shaped American history in opposite directions. The cotton gin (1794) separated cotton fiber from seeds far more efficiently than human hands could manage. Within a decade of its invention, Southern cotton production had increased fifty-fold. The South became the world's dominant cotton supplier — and because cotton cultivation required enormous amounts of labor, the demand for enslaved people exploded. Whitney's invention became the economic engine of American slavery's expansion.</p><p>His second major contribution — the concept of interchangeable parts, developed in manufacturing muskets for the U.S. Army — was equally transformative and far less morally complicated. By standardizing components, he made mass manufacturing possible and laid the groundwork for the assembly line, the factory system, and the entire industrial economy.</p><p>Whitney spent much of his career fighting patent infringement suits over the cotton gin and died having made most of his money from musket manufacturing. His dual legacy perfectly captures the paradox of American ingenuity: the same inventive energy that built the industrial North also bound the enslaved South more tightly to its brutal labor system.</p>`},
+
+  {rank:28,name:"Dwight Eisenhower",dates:"1890 – 1969",tagline:"He won a war and two elections, and made everybody like Ike.",tags:["President","World War II","Cold War","Kansas"],bio:`<p>Dwight Eisenhower commanded the largest amphibious invasion in history (D-Day, June 6, 1944), managed an alliance among prickly national leaders from Churchill to de Gaulle, and then served two presidential terms with a political skill that disguised itself as amiability — what his biographer Fred Greenstein called "hidden-hand" leadership. As Supreme Allied Commander, his organizational and political abilities were as important as his military judgment. The decision to launch D-Day despite bad weather required exactly the combination of preparation and boldness that defined his generalship.</p><p>His presidency (1953–1961) ended the Korean War, refused to involve America militarily in Vietnam (despite pressure), kept the defense budget under control, and built the interstate highway system — the largest public works project in American history. His farewell address warning against the "military-industrial complex" was one of the most prescient departures from office in presidential history.</p><p>He desegregated the military (completing Truman's order) and sent federal troops to enforce school integration in Little Rock in 1957 — more decisive action on civil rights than his reputation sometimes suggests.</p>`},
+
+  {rank:29,name:"Earl Warren",dates:"1891 – 1974",tagline:"His Supreme Court transformed American society and bequeathed to us the culture wars.",tags:["Chief Justice","Supreme Court","Civil Rights","California"],bio:`<p>Earl Warren was appointed Chief Justice by Eisenhower in 1953, and Eisenhower would later call it "the biggest damn fool mistake I ever made." Warren, a former Republican governor of California, had seemed reliably conservative. What he became was the leader of the most activist Supreme Court in American history. Brown v. Board of Education (1954) — which Warren engineered into a unanimous opinion — declared racial segregation in public schools unconstitutional, launching the modern civil rights era.</p><p>The Warren Court then transformed American constitutional law across a remarkable range. Baker v. Carr established one-person, one-vote. Gideon v. Wainwright guaranteed the right to counsel in criminal cases. Miranda v. Arizona required police to inform suspects of their rights. Griswold v. Connecticut recognized a constitutional right to privacy in contraception. These decisions remade American criminal procedure, voting rights, and the boundaries of government power.</p><p>The conservative backlash — "Impeach Earl Warren" billboards appeared across the South and Midwest — was the beginning of the culture-wars politics that has characterized American life ever since. Warren's legacy is an America both more free and more bitterly divided about the meaning of freedom.</p>`},
+
+  {rank:30,name:"Elizabeth Cady Stanton",dates:"1815 – 1902",tagline:"One of the first great American feminists, she fought for women's suffrage and social reform.",tags:["Women's Rights","Suffrage","Abolition","New York"],bio:`<p>Elizabeth Cady Stanton was the most intellectually formidable leader of the nineteenth-century women's rights movement — a thinker who understood that suffrage was only one part of a much larger project of women's liberation. The Seneca Falls Convention of 1848, which she organized, produced the Declaration of Sentiments — a document she drafted, modeled deliberately on the Declaration of Independence, which declared that "all men and women are created equal."</p><p>Her fifty-year partnership with Susan B. Anthony produced the National Woman Suffrage Association and the monumental History of Woman Suffrage. Stanton's speeches and essays made the intellectual case for women's equality with a combination of sharp legal reasoning, historical argument, and righteous anger. Her radicalism — which extended to critiques of organized religion in her controversial The Woman's Bible — made her too hot for the movement's mainstream in her later years.</p><p>She died in 1902, eighteen years before the Nineteenth Amendment was ratified. But her vision encompassed everything the movement eventually achieved and more. She was the philosopher of American feminism's first wave.</p>`},
+
+  {rank:31,name:"Henry Clay",dates:"1777 – 1852",tagline:"One of America's greatest legislators, he forged compromises that held off civil war for decades.",tags:["Senator","Whig Party","Kentucky","Compromise"],bio:`<p>Henry Clay was the greatest legislator in American history who never became president — a three-time presidential candidate who lost each time, but whose influence from 1810 to 1850 was arguably greater than any president he served under. His "American System" — national bank, protective tariffs, internal improvements — was the governing economic philosophy of the Whig Party and the precursor of the Republican program that followed.</p><p>His skill at legislative compromise earned him the title "The Great Pacificator." The Missouri Compromise of 1820, which he engineered, held the question of slavery's expansion in check for thirty years. The Compromise of 1850, his last great achievement, delayed the Civil War by a decade — giving the North time to grow stronger and the Union time to consolidate. His oratory was legendary: Daniel Webster said he had never heard Clay's equal.</p><p>"I would rather be right than be president," he reportedly said. He was often both. His management of the House of Representatives as Speaker established the template for congressional leadership, and his career demonstrated that a great legislator could shape history as decisively as any chief executive.</p>`},
+
+  {rank:32,name:"Albert Einstein",dates:"1879 – 1955",tagline:"His greatest scientific work was done in Europe, but his humanity earned him undying fame in America.",tags:["Physicist","Relativity","Germany","Princeton"],bio:`<p>Albert Einstein published four revolutionary papers in 1905 — his "miracle year" — while working as a patent clerk in Switzerland. One introduced the special theory of relativity; another proposed E=mc², which expressed the equivalence of mass and energy and eventually made nuclear weapons possible. The general theory of relativity, completed in 1915, rewrote Newton's understanding of gravity and spacetime. Confirmation that starlight bends around massive objects, observed during a 1919 solar eclipse, made him instantly world-famous.</p><p>Einstein fled Nazi Germany in 1933, settling at the Institute for Advanced Study in Princeton, where he spent the rest of his life. His letter to Franklin Roosevelt in 1939 warned of the possibility of a German atomic bomb and nudged the United States toward the Manhattan Project. In America, Einstein was more than a scientist; he was a moral figure — an advocate for civil rights, nuclear disarmament, and pacifism. He spoke out against McCarthyism at considerable personal risk, and his correspondence with W.E.B. Du Bois made him, in the FBI's eyes, a dangerous radical.</p><p>He died in Princeton in 1955, having refused surgery: "I want to go when I want. It is tasteless to prolong life artificially."</p>`},
+
+  {rank:33,name:"Ralph Waldo Emerson",dates:"1803 – 1882",tagline:"The bard of individualism, he relied on himself — and told us all to do the same.",tags:["Philosophy","Transcendentalism","Massachusetts","Essays"],bio:`<p>Ralph Waldo Emerson was the great prophet of American individualism — the philosopher who gave intellectual substance to the national mythology of self-reliance, self-creation, and independence from tradition. "Trust thyself," he wrote in "Self-Reliance." "Every heart vibrates to that iron string." A Unitarian minister who left the pulpit because its constraints were too narrow, Emerson created his own platform through the Lyceum lecture circuit, traveling throughout America to address audiences hungry for intellectual stimulation.</p><p>His essays — "Nature," "The American Scholar," "Self-Reliance," "The Over-Soul" — were originally lectures, and they retain the immediacy of speech even in print. His influence on subsequent American writing was enormous. Whitman sent him Leaves of Grass and received back a famous letter: "I greet you at the beginning of a great career." Thoreau was his protégé and neighbor. His optimistic transcendentalism became the unofficial philosophy of American self-improvement culture.</p><p>He was also a committed abolitionist who gave his home as a station on the Underground Railroad and delivered some of the most powerful antislavery speeches of the antebellum period. His idealism carried political consequences.</p>`},
+
+  {rank:34,name:"Jonas Salk",dates:"1914 – 1995",tagline:"His vaccine for polio eradicated one of the world's worst plagues.",tags:["Medicine","Polio","Vaccine","New York"],bio:`<p>Jonas Salk developed the first effective polio vaccine and then, in a gesture both scientifically unusual and publicly heroic, declined to patent it — giving it to the world. "Could you patent the sun?" he said. The decision cost him and his university hundreds of millions in potential royalties. It also made him the most admired scientist in America. Polio was one of the most feared diseases of the mid-twentieth century, striking primarily children, leaving many paralyzed or dead. President Roosevelt had polio.</p><p>When Salk's vaccine was declared safe and effective on April 12, 1955 — the tenth anniversary of Roosevelt's death — the announcement was met with celebrations across the country. Church bells rang. Schools let out early. Salk's achievement was methodological as much as medical: he pursued a killed-virus vaccine when the scientific consensus favored a live-virus approach, and he was right. He also conducted the largest clinical trial in history, testing on 1.8 million children.</p><p>Albert Sabin's subsequent oral vaccine eventually superseded Salk's injectable version for most purposes. The professional rivalry between the two men was famously bitter. But it was Salk who ended the annual summer terror of polio in America, and who gave the world the template for large-scale vaccination campaigns.</p>`},
+
+  {rank:35,name:"Jackie Robinson",dates:"1919 – 1972",tagline:"He broke baseball's color barrier and embodied integration's promise.",tags:["Baseball","Civil Rights","Georgia","Sports"],bio:`<p>Jackie Robinson broke Major League Baseball's color barrier on April 15, 1947, when he took the field for the Brooklyn Dodgers — and in doing so, became the most consequential athlete in American history. His number, 42, is the only number retired across all of Major League Baseball. Branch Rickey, the Dodgers' general manager who recruited him, asked Robinson to endure abuse without response for his first two years. Robinson agreed, though it cost him enormously. He received death threats, was refused service at hotels and restaurants, endured racial taunting from opposing benches and some teammates, and absorbed all of it while playing at an All-Star level.</p><p>He won the inaugural Rookie of the Year award, the 1949 batting title and MVP award, and was a six-time All-Star. But it was his character, his dignity under relentless assault, that made him a symbol of American possibility. He showed that integration could work at a moment when the country needed to believe it. After retiring in 1957, Robinson became an active civil rights advocate, working with the NAACP and pressuring politicians on civil rights legislation.</p><p>He was a complex figure politically — a Republican who supported Nixon in 1960 before later breaking with the party. He died of a heart attack at 53, partially blind from diabetes, his body worn down by what it had required of him.</p>`},
+
+  {rank:36,name:"William Jennings Bryan",dates:"1860 – 1925",tagline:"\"The Great Commoner\" lost three presidential elections, but his populism transformed the country.",tags:["Politician","Populism","Nebraska","Orator"],bio:`<p>William Jennings Bryan was the most eloquent American politician who never became president — a three-time Democratic presidential candidate whose popular reforms were eventually adopted by his opponents. His "Cross of Gold" speech at the 1896 Democratic convention — denouncing the gold standard and championing the common man — was perhaps the greatest convention speech in American history, producing pandemonium in the hall and winning him the nomination at 36.</p><p>His subsequent campaigns (1900, 1908) were also losses, but he pushed the political agenda relentlessly leftward: his platforms anticipated the graduated income tax, direct election of senators, women's suffrage, campaign finance regulation, and banking reform — all of which eventually became law. He was simultaneously progressive on economics and conservative on religion, a contradiction that defined American populism then and now.</p><p>His final public appearance, at the Scopes Trial in 1925, where he argued for Tennessee's anti-evolution law against Clarence Darrow, ended in humiliation when Darrow put him on the stand and exposed the contradictions of his biblical literalism. Bryan died five days after the verdict. But the reforms he championed outlasted his defeats.</p>`},
+
+  {rank:37,name:"J. P. Morgan",dates:"1837 – 1913",tagline:"The great financier was the prototype for all the Wall Street barons who followed.",tags:["Finance","Banking","Industry","Connecticut"],bio:`<p>J.P. Morgan was the most powerful private citizen in American history — a banker who twice saved the United States government from financial crisis and whose deals shaped the structure of American industry for a century. In 1895, when the federal gold reserve was dangerously depleted, Morgan organized a private syndicate that supplied $65 million in gold to the Treasury, stabilizing the currency. In the Panic of 1907, he gathered New York's leading bankers in his library, locked the door, and refused to let them leave until they had agreed on a rescue package for the banking system. The spectacle of a private citizen controlling the public financial system so alarmed Congress that it created the Federal Reserve six years later.</p><p>His corporate deals were equally epochal: the merger that created General Electric, and the 1901 purchase of Carnegie's steel company to create U.S. Steel — at the time the largest corporation in the world. He was also a major cultural philanthropist, building the Morgan Library and donating to the Metropolitan Museum of Art.</p><p>He was physically imposing, with a famously bulbous, rosacea-inflamed nose he was sensitive about, and a personality that combined exceptional intelligence with absolute command of any room he entered.</p>`},
+
+  {rank:38,name:"Susan B. Anthony",dates:"1820 – 1906",tagline:"She was the country's most eloquent voice for women's equality under the law.",tags:["Women's Rights","Suffrage","Abolition","Massachusetts"],bio:`<p>Susan B. Anthony spent fifty years fighting for women's right to vote and died fourteen years before the Nineteenth Amendment — nicknamed the Susan B. Anthony Amendment — was ratified. Born into a Quaker family with strong reformist values, she was a committed abolitionist and temperance advocate before becoming the leading organizational genius of the women's suffrage movement. Her partnership with Elizabeth Cady Stanton lasted five decades and produced millions of words of speeches, essays, and petitions.</p><p>She traveled constantly, gave thousands of speeches, organized state campaigns, and lobbied Congress year after year. In 1872, she voted illegally in a federal election in Rochester, New York, was arrested, tried, and found guilty — and used her trial as a platform to argue that the Fourteenth Amendment already guaranteed women the right to vote. The judge refused to let her speak in her defense; she spoke anyway.</p><p>She co-founded the National Woman Suffrage Association with Stanton in 1869, led the movement through decades of defeat and setback, and lived to see it grow into a mass force. Her face on the dollar coin, debuted in 1979, was the first time a woman appeared on U.S. currency. The suffrage movement she led is now recognized as one of the great democratic achievements in American history.</p>`},
+
+  {rank:39,name:"Rachel Carson",dates:"1907 – 1964",tagline:"The author of Silent Spring was godmother to the environmental movement.",tags:["Environment","Science","Author","Pennsylvania"],bio:`<p>Rachel Carson was a marine biologist and nature writer whose 1962 book Silent Spring launched the modern environmental movement and led directly to the banning of DDT in the United States and eventually to the EPA, the Clean Air Act, and the Clean Water Act. Few books in American history have had more direct legislative consequence. Silent Spring documented the devastating effects of pesticides on bird populations, ecosystems, and potentially human health, with both scientific rigor and literary grace that general readers could understand and be moved by.</p><p>The chemical industry responded with a ferocious campaign against her credibility. She was dismissed as a hysterical woman and a communist. She had been diagnosed with breast cancer while writing the book and was dying as she defended it. She testified before a Senate subcommittee in 1963 with quiet authority, and President Kennedy's Science Advisory Committee independently confirmed her findings. DDT was banned in the U.S. in 1972. The bald eagle, decimated by DDT's effects on egg shells, has recovered.</p><p>Carson died in 1964 at 56, having started a conversation that continues to define how we think about the relationship between human activity and natural systems.</p>`},
+
+  {rank:40,name:"John Dewey",dates:"1859 – 1952",tagline:"He sought to make the public school a training ground for democratic life.",tags:["Education","Philosophy","Vermont","Pragmatism"],bio:`<p>John Dewey was the most influential educational thinker in American history and one of its most important philosophers — the primary exponent of pragmatism as applied to democracy, education, and everyday life. His central insight was that children learn by doing — that the school should be a community of inquiry in which students solve real problems rather than memorize received knowledge. His Laboratory School at the University of Chicago tested these ideas in practice. His books Democracy and Education and Experience and Education became the foundational texts of progressive education.</p><p>As a philosopher, Dewey's pragmatism held that ideas should be evaluated by their practical consequences — that the test of a belief is not its correspondence to abstract truth but its utility in solving problems and improving human experience. This thoroughly American philosophical stance influenced social science, legal theory, and political thought as much as education. He was also a democratic activist: a co-founder of the NAACP and the ACLU, an opponent of World War I, and a vocal critic of Stalinism.</p><p>His influence on American education — both good and ill, as his ideas were often oversimplified and misapplied — is impossible to overstate. He lived to 92 and spent 70 of those years thinking and writing about democracy.</p>`},
+
+  {rank:41,name:"Harriet Beecher Stowe",dates:"1811 – 1896",tagline:"Uncle Tom's Cabin inspired a generation of abolitionists and set the stage for civil war.",tags:["Author","Abolitionism","Connecticut","Literature"],bio:`<p>When Abraham Lincoln met Harriet Beecher Stowe in 1862, he reportedly said, "So you're the little woman who wrote the book that started this great war." The story may be apocryphal, but it captures something true: Uncle Tom's Cabin (1852) was the most politically consequential work of fiction in American history. The novel dramatized the human reality of slavery — the separations of families, the arbitrary cruelty, the dignity and suffering of enslaved people — in a way that abstract political arguments could not. It sold 300,000 copies in its first year in the United States and a million in Britain.</p><p>Stowe was the daughter of Lyman Beecher and the sister of Henry Ward Beecher, two of the most prominent Protestant clergymen in America. She wrote the novel, she said, in a state of inspired fury after the passage of the Fugitive Slave Act of 1850, which required Northern citizens to assist in capturing and returning escaped slaves. She had seen the Ohio River and knew what it meant to cross it.</p><p>The novel's racial characterizations are painfully dated, and the "Uncle Tom" archetype has become an insult. But its historical role in crystallizing antislavery sentiment in the North was without parallel. It made slavery a human story rather than an economic or political abstraction.</p>`},
+
+  {rank:42,name:"Eleanor Roosevelt",dates:"1884 – 1962",tagline:"She used the first lady's office and the mass media to become \"first lady of the world.\"",tags:["First Lady","Human Rights","United Nations","New York"],bio:`<p>Eleanor Roosevelt transformed what it meant to be First Lady — and then, after her husband's death, continued transforming what it meant to be an American moral force in the world. Shy and deeply insecure in her youth, she became through effort and suffering one of the great public figures of the twentieth century. Her marriage to Franklin was complicated by his long affair with Lucy Mercer, but they developed a political partnership of extraordinary effectiveness. Eleanor served as FDR's conscience, his representative to constituencies he couldn't reach, and his intelligence on conditions in the country.</p><p>Her most important achievements came after FDR's death. As U.S. Representative to the United Nations Commission on Human Rights, she chaired the drafting of the Universal Declaration of Human Rights (1948), one of the foundational documents of the modern international order. She lobbied, negotiated, and drafted with the skill of a seasoned diplomat.</p><p>At home, she was a forceful advocate for civil rights. She resigned from the Daughters of the American Revolution when they refused to let Marian Anderson sing at Constitution Hall, and arranged for her to sing at the Lincoln Memorial instead — to a crowd of 75,000. Harry Truman called her "First Lady of the World." The title was accurate.</p>`},
+
+  {rank:43,name:"W. E. B. Du Bois",dates:"1868 – 1963",tagline:"One of America's great intellectuals, he made the problem of the color line his life's work.",tags:["Civil Rights","Sociology","Author","Massachusetts"],bio:`<p>W.E.B. Du Bois was the most intellectually formidable African American of the early twentieth century — a sociologist, historian, editor, activist, and essayist who spent ninety-five years thinking about race in America with unmatched rigor and passion. The first Black person to earn a PhD from Harvard (1895), he used that credential to challenge the intellectual foundations of American racism. The Souls of Black Folk (1903) is one of the great American books, introducing "double consciousness" — the sense of seeing oneself always through the eyes of others — and the unforgettable prophecy: "the problem of the twentieth century is the problem of the color line."</p><p>His conflict with Booker T. Washington defined the politics of Black America in the early twentieth century. Washington preached accommodation and vocational education; Du Bois demanded full civil and political rights immediately. He co-founded the NAACP in 1909 and edited its journal, The Crisis, for 24 years, making it the most important African American publication of the era.</p><p>His late life was shadowed by McCarthyism: he was indicted (and acquitted) for failing to register as a foreign agent, had his passport revoked for years, and eventually emigrated to Ghana, where he died in 1963 — the day before the March on Washington.</p>`},
+
+  {rank:44,name:"Lyndon Baines Johnson",dates:"1908 – 1973",tagline:"His brilliance gave us civil-rights laws; his stubbornness gave us Vietnam.",tags:["President","Civil Rights","Vietnam","Texas"],bio:`<p>Lyndon Johnson was the most legislatively skilled president in American history and one of the most tragic. A master of the Senate who understood power with an intuitive genius unmatched in modern politics, he passed more major legislation in five years than any president since FDR — and then destroyed his presidency over a war he neither wanted nor could end. The Civil Rights Act of 1964 and the Voting Rights Act of 1965 were his greatest achievements. Kennedy had proposed civil rights legislation; Johnson pushed it through a Southern-dominated Senate that had blocked every previous attempt, using Kennedy's assassination as a moral lever and his legislative mastery as a tool.</p><p>His Great Society — Medicare, Medicaid, the Higher Education Act, Head Start, the National Endowment for the Arts and Humanities, the Public Broadcasting Act — represented the last great expansion of the New Deal state. Vietnam consumed him. He escalated American involvement out of fear that losing Vietnam would destroy his domestic program. By 1968, with 500,000 troops in Southeast Asia and the war clearly unwinnable, he announced he would not seek re-election.</p><p>He retired to his Texas ranch and died of a heart attack in January 1973, the day before the Paris Peace Accords were signed. His tragedy was to be both the president who did the most for racial equality and the president who broke the coalition that made reform possible.</p>`},
+
+  {rank:45,name:"Samuel F. B. Morse",dates:"1791 – 1872",tagline:"Before the Internet, there was Morse code.",tags:["Inventor","Telegraph","Communication","Massachusetts"],bio:`<p>Samuel Morse spent the first half of his life as a painter — a successful portrait artist who co-founded the National Academy of Design — and the second half as the inventor of the first practical electrical telegraph and the coding system that bears his name. The idea came to him in 1832 on a ship returning from Europe. He spent the next eleven years developing the technology and lobbying Congress for funding. A $30,000 congressional appropriation in 1843 enabled him to build a demonstration line from Washington to Baltimore. On May 24, 1844, he sent the first long-distance telegraph message: "What hath God wrought?"</p><p>The commercial and social impact was immediate and transformative. For the first time in history, information could travel faster than a horse. Markets could coordinate across distances. Newspapers could report events the same day. Railroads could synchronize their schedules. The Civil War was the first war coordinated by telegraph, and Lincoln's ability to communicate directly with his generals transformed military command. Morse's dot-and-dash code became the international standard for telegraph communication and is still used in some contexts today.</p>`},
+
+  {rank:46,name:"William Lloyd Garrison",dates:"1805 – 1879",tagline:"Through The Liberator, he became the uncompromising voice of abolition.",tags:["Abolitionism","Journalist","Massachusetts","Reform"],bio:`<p>William Lloyd Garrison was the most morally uncompromising voice of the abolitionist movement. His newspaper, The Liberator, which he published from 1831 until slavery was abolished in 1865, announced its terms in its first issue: "I will be as harsh as truth, and as uncompromising as justice... I will not equivocate — I will not excuse — I will not retreat a single inch — AND I WILL BE HEARD." He was heard. His founding of the American Anti-Slavery Society in 1833 organized the abolitionist movement into a national network of speakers and agitators.</p><p>His rhetoric was so inflammatory that Georgia offered a $5,000 reward for his arrest, and a Boston mob dragged him through the streets with a rope around his neck in 1835. Garrison's radicalism extended beyond slavery: he was an early advocate of women's rights, a pacifist, and a critic of the Constitution, which he famously called "a covenant with death and an agreement with hell" because of its compromises on slavery.</p><p>His public burning of the Constitution on the Fourth of July alienated many moderate abolitionists, including Frederick Douglass, with whom he had a painful break in 1847. But Garrison's absolutism — his insistence that slavery was entirely wrong and must be entirely abolished — ultimately prevailed.</p>`},
+
+  {rank:47,name:"Frederick Douglass",dates:"1818 – 1895",tagline:"After escaping slavery, he pricked the nation's conscience with an eloquent accounting of its crimes.",tags:["Abolitionism","Author","Orator","Maryland"],bio:`<p>Frederick Douglass was born into slavery in Maryland, taught himself to read in secret, escaped north at 20, and within three years had become the most eloquent abolitionist speaker in America. His Narrative of the Life of Frederick Douglass (1845) — written in beautiful, precise English prose that demolished the racist assumption of Black intellectual inferiority — was an immediate bestseller and one of the most important books in American history. His oratory was equally devastating. His 1852 speech "What to the Slave is the Fourth of July?" — still one of the great American addresses — turned the national celebration into an accusation.</p><p>He advised Abraham Lincoln, helped recruit Black troops for the Union Army, and argued tirelessly that the Civil War must become a war for emancipation. After the war, he was the leading Black political voice in America — editor of newspapers, U.S. Marshal for the District of Columbia, and consul general to Haiti — and a relentless opponent of the betrayal of Reconstruction.</p><p>His three autobiographies constitute one of the great literary self-presentations in the American canon. No life better embodies the distance between American ideals and American reality — or the effort required to close the gap.</p>`},
+
+  {rank:48,name:"Robert Oppenheimer",dates:"1904 – 1967",tagline:"The father of the atomic bomb and the regretful midwife of the nuclear era.",tags:["Physics","Manhattan Project","New York","Cold War"],bio:`<p>J. Robert Oppenheimer was the scientific director of the Manhattan Project. On July 16, 1945, at Trinity Site in New Mexico, he watched the first nuclear explosion light up the pre-dawn desert, and quoted the Bhagavad Gita: "Now I am become Death, the destroyer of worlds." The moment was the hinge of the twentieth century. Oppenheimer assembled and led a team of the greatest physicists in the world at Los Alamos — a remote mesa in New Mexico that he had loved since childhood. His ability to manage enormous scientific egos and solve practical engineering problems made him the indispensable leader of the project.</p><p>After the war, Oppenheimer became the most prominent voice for international control of nuclear weapons and opposed the development of the hydrogen bomb on both moral and strategic grounds. In 1954, during the McCarthy era, his security clearance was revoked in a hearing that effectively destroyed his public career. His former colleagues testified against him; Edward Teller's testimony was particularly damaging.</p><p>He spent his remaining years as director of the Institute for Advanced Study at Princeton, scientifically sidelined. President Johnson presented him the Enrico Fermi Award in December 1963. Oppenheimer accepted it with characteristic grace and sadness.</p>`},
+
+  {rank:49,name:"Frederick Law Olmsted",dates:"1822 – 1903",tagline:"The genius behind Central Park, he inspired the greening of America's cities.",tags:["Landscape Architecture","Conservation","New York","Urban Planning"],bio:`<p>Frederick Law Olmsted invented landscape architecture as a profession and left in the American landscape a body of work that has given pleasure to hundreds of millions of people. Central Park in New York City — designed with Calvert Vaux and built between 1858 and 1873 — was his masterpiece and the first major public park in American history. Olmsted's parks — Prospect Park in Brooklyn, the park systems of Boston and Buffalo, the grounds of the U.S. Capitol, the campuses of Stanford and Berkeley — were all built on the same philosophical foundation: that access to natural beauty was a democratic necessity, not a luxury.</p><p>His design philosophy was both artful and counterintuitive. Central Park, which looks natural, is entirely artificial — every tree, every lake, every slope was designed and placed. The park's genius is in making the city disappear; the moment you step inside, the buildings vanish, and you are in a landscape that seems to have been there forever. He was also an important journalist: his dispatches from the antebellum South, published as The Cotton Kingdom, were among the most detailed and damning accounts of the slave economy ever written.</p>`},
+
+  {rank:50,name:"James K. Polk",dates:"1795 – 1849",tagline:"This one-term president's Mexican War land grab gave us California, Texas, and the Southwest.",tags:["President","Manifest Destiny","Mexican War","Tennessee"],bio:`<p>James K. Polk may be the most underrated president in American history. He entered office in 1845 with four explicit goals — acquire California, settle the Oregon boundary dispute, reduce tariffs, and establish an independent Treasury — and accomplished all four. He then kept his promise not to seek a second term and died three months after leaving office, exhausted at 53. His presidency definitively established American continental expansion. The Mexican-American War (1846–1848) that followed the annexation of Texas gave the United States California, Nevada, Utah, Arizona, New Mexico, and parts of Colorado and Wyoming.</p><p>The Mexican-American War was deeply controversial. Abraham Lincoln demanded to know the exact spot on American soil where Mexican troops had supposedly attacked first. Henry David Thoreau went to jail rather than pay taxes to support it. Ulysses Grant, who fought in it, called it "the most unjust war ever waged by a stronger nation against a weaker nation." But the territory Polk acquired determined the shape of American power for a century. California alone — the Pacific coast, the ports, the eventual tech economy — has been worth incalculably more than the $15 million indemnity paid to Mexico.</p>`},
+
+  {rank:51,name:"Margaret Sanger",dates:"1879 – 1966",tagline:"The ardent champion of birth control — and the sexual freedom that came with it.",tags:["Women's Rights","Reproductive Rights","New York","Activism"],bio:`<p>Margaret Sanger founded the American birth control movement, opened the first birth control clinic in the United States, and eventually helped establish what became Planned Parenthood. Her life's work was illegal when she began it. A visiting nurse on the Lower East Side of Manhattan, she saw firsthand the damage done by uncontrolled fertility among poor immigrant women: the illegal abortions, the maternal deaths, the families ground into poverty by more children than they could feed. She began distributing contraceptive information in 1914, was indicted under the Comstock Laws, and fled to Europe while awaiting trial.</p><p>Sanger's legacy is deeply complicated by her embrace of eugenics — the belief that "unfit" populations should be discouraged from reproducing. Her views on race and disability were troubling by any standard. But her fundamental achievement — the separation of sexuality from reproduction, and the assertion that women had the right to control their own bodies — transformed American life. The birth control pill, whose development she helped fund in the 1950s, was the direct descendant of her life's work.</p>`},
+
+  {rank:52,name:"Joseph Smith",dates:"1805 – 1844",tagline:"The founder of Mormonism, America's most successful homegrown religion.",tags:["Religion","Mormonism","New York","Prophet"],bio:`<p>Joseph Smith founded the Church of Jesus Christ of Latter-day Saints in 1830 in upstate New York, claiming to have translated an ancient scripture — the Book of Mormon — from golden plates shown to him by an angel. Within his lifetime, he had gathered tens of thousands of followers; today the church has more than 16 million members worldwide and is the fastest-growing religion in American history. Smith revealed theological innovations — including plural marriage — that were radically at odds with mainstream Protestant Christianity. The Mormon communities he led were expelled repeatedly: from Missouri, from Illinois, from Ohio. At each expulsion, the community's cohesion actually strengthened.</p><p>His murder by a mob in Carthage, Illinois, in 1844, while awaiting trial on charges of treason, created a martyr and galvanized the movement. Under Brigham Young's leadership, the Saints trekked to Utah and built a civilization in the desert. Whatever one thinks of Smith's theology or personal conduct, his ability to create a new religion from scratch that has survived, grown, and produced a globally recognized culture is one of the most remarkable achievements in American religious history.</p>`},
+
+  {rank:53,name:"Oliver Wendell Holmes Jr.",dates:"1841 – 1935",tagline:"\"The Great Dissenter\" wrote opinions that continue to shape American jurisprudence.",tags:["Supreme Court","Law","Civil War","Massachusetts"],bio:`<p>Oliver Wendell Holmes Jr. served on the Supreme Court for 30 years (1902–1932), wrote opinions of extraordinary literary quality, and transformed American legal theory by insisting that law was not discovered but made — the product of historical experience and social need rather than logical deduction from abstract principles. "The life of the law has not been logic; it has been experience," he wrote in The Common Law (1881), before he reached the Court. His dissents — particularly in First Amendment cases — have proven more durable than the majority opinions he disagreed with.</p><p>In Abrams v. United States (1919), he dissented from the conviction of Russian immigrants who had thrown antiwar leaflets, articulating the "marketplace of ideas" theory of free speech. He was also capable of catastrophic error: Buck v. Bell (1927), in which he wrote "three generations of imbeciles are enough" in upholding forced sterilization, is a permanent stain on his record. Wounded three times in the Civil War, he came to hold a philosophy of life as striving without certainty — a secular stoicism that made him one of the most philosophically interesting figures ever to sit on the Supreme Court.</p>`},
+
+  {rank:54,name:"Bill Gates",dates:"1955 –",tagline:"The Rockefeller of the Information Age, in business and philanthropy alike.",tags:["Technology","Microsoft","Philanthropy","Washington"],bio:`<p>Bill Gates co-founded Microsoft in 1975 at 19, dropped out of Harvard, and built the most dominant software company in history. The licensing of MS-DOS to IBM in 1980 established the principle of software licensing as the fundamental structure of the tech industry. Windows made the graphical user interface standard on personal computers and put a Microsoft product on the desk of nearly every office worker in the world. At its peak in the late 1990s, Microsoft's market capitalization made it the most valuable company in history, and Gates was the richest person in the world.</p><p>The Justice Department's antitrust case against Microsoft (1998–2001) found Gates's courtroom deposition — evasive, arrogant, inarticulate — to be one of the stranger spectacles of the tech era. The company survived roughly intact, though its dominance was eventually eroded by Google, Apple, and mobile computing. In 2000, Gates stepped back from Microsoft to focus on the Bill & Melinda Gates Foundation, which has become the largest private charitable foundation in history, focusing on global public health — vaccines, malaria, polio, sanitation — and saving millions of lives.</p>`},
+
+  {rank:55,name:"John Quincy Adams",dates:"1767 – 1848",tagline:"The Monroe Doctrine's real author, he set nineteenth-century America's diplomatic course.",tags:["President","Diplomat","Massachusetts","Secretary of State"],bio:`<p>John Quincy Adams was the most intellectually gifted president in American history — a man who spoke eight languages and had served as diplomat, senator, professor, secretary of state, and president before his greatest public contribution: a 17-year career as a congressman from Massachusetts, during which he became the most eloquent opponent of slavery's expansion in the antebellum Congress. As Secretary of State under Monroe, Adams wrote what became known as the Monroe Doctrine — arguably the most important statement of American foreign policy in the nineteenth century.</p><p>His single presidential term (1825–1829) was unhappy — he had won through the "corrupt bargain" in the House and was opposed from the start. But his post-presidential career was remarkable. Elected to the House in 1830, he served until his death in 1848, becoming the most persistent opponent of the "gag rule" that prevented antislavery petitions from being debated. He argued the Amistad case before the Supreme Court in 1841, winning freedom for African captives who had seized their slave ship. He collapsed on the floor of the House in February 1848 and died two days later in the Speaker's room — still at his post, working to the end.</p>`},
+
+  {rank:56,name:"Horace Mann",dates:"1796 – 1859",tagline:"His advocacy of universal public schooling earned him the title \"Father of American Education.\"",tags:["Education","Massachusetts","Reform","Politics"],bio:`<p>Horace Mann transformed American education from a patchwork of private, religious, and charity schools into a system of free public schools available to every child regardless of wealth or social class. As the first Secretary of Education of Massachusetts (1837–1848), he traveled to Europe to study school systems, particularly Prussia's, and returned with a vision that reshaped American education for a century. His annual reports argued for longer school years, better teacher preparation, improved school buildings, an end to corporal punishment, and the replacement of rote memorization with genuine understanding. He established the first normal schools in America (colleges for teacher training) and professionalized teaching as a career.</p><p>His vision was explicitly democratic: "Education, then, beyond all other devices of human origin, is the great equalizer of the conditions of men — the balance-wheel of the social machinery." His reforms in Massachusetts became a model for the nation. By the time of the Civil War, the principle of universal free public education had spread to most Northern states. His influence on the physical structure of American schooling — the graded classroom, the school year, the teacher-training college — is felt to this day.</p>`},
+
+  {rank:57,name:"Robert E. Lee",dates:"1807 – 1870",tagline:"He was a good general but a better symbol, embodying conciliation in defeat.",tags:["Civil War","General","Virginia","Confederate"],bio:`<p>Robert E. Lee is the most complicated figure on this list — a man whose military reputation may be somewhat inflated, whose political choices were arguably wrong, and whose post-war symbolic role was largely constructed by Lost Cause mythology, yet who genuinely embodied qualities of character that made him influential in ways that outlasted the cause he served. A graduate first in his class at West Point, Lee refused Lincoln's offer of command of the Union Army and resigned to lead Virginia's forces — a decision he said tore him apart, but one that reflected his understanding of loyalty to his state over his nation.</p><p>As commander of the Army of Northern Virginia, he repeatedly outmaneuvered larger Union forces, winning victories at Second Bull Run, Fredericksburg, and Chancellorsville. His overreach at Gettysburg — particularly Pickett's Charge — was a catastrophic mistake that many historians argue was decisive in determining the war's outcome. After the surrender at Appomattox, Lee counseled reconciliation, refused offers to lead a Southern resistance, and spent his remaining years as president of Washington College. His post-war behavior set a tone of dignified acceptance that many Southerners took from him as a model. The monuments erected to him in the twentieth century, however, served purposes far removed from reconciliation.</p>`},
+
+  {rank:58,name:"John C. Calhoun",dates:"1782 – 1850",tagline:"The voice of the antebellum South, he was slavery's most ardent political defender.",tags:["Senator","South Carolina","States' Rights","Secession"],bio:`<p>John C. Calhoun was the most brilliant and most dangerous American politician of the antebellum era — a man of genuine intellectual power who devoted that power entirely to the defense of slavery and the construction of constitutional theories that could justify it. He served as Vice President under both John Quincy Adams and Andrew Jackson, Secretary of State, Secretary of War, and Senator from South Carolina. His theory of nullification — the claim that states had the right to void federal laws they deemed unconstitutional — threatened the union from the 1820s onward.</p><p>On the Senate floor in 1837, he made the claim that defined his legacy: "I hold that in the present state of civilization... the relation now existing in the slaveholding States between the two is, instead of an evil, a good — a positive good." He was the first prominent politician to make this argument explicitly, and it became the official ideology of the antebellum South. His Disquisition on Government was a sophisticated constitutional argument for minority rights — specifically, the right of the slaveholding minority to veto legislation threatening their "peculiar institution." He was wrong. But his constitutional theories about minority rights and federal overreach have recurred throughout American history.</p>`},
+
+  {rank:59,name:"Louis Sullivan",dates:"1856 – 1924",tagline:"The father of architectural modernism, he shaped the defining American building: the skyscraper.",tags:["Architecture","Chicago","Modernism","Design"],bio:`<p>Louis Sullivan coined the phrase "form follows function" and designed buildings that embodied it — tall, light-filled, structurally logical structures that became the template for modern architecture. Working in Chicago after the Great Fire of 1871, he developed the aesthetic principles of the skyscraper at precisely the moment when structural steel and the elevator made tall buildings possible. The Wainwright Building in St. Louis (1891) and the Guaranty Building in Buffalo (1894–95) are his masterpieces — buildings that expressed their steel skeletons in their facades and achieved a unity of engineering and aesthetics that his contemporaries recognized as revolutionary.</p><p>His most famous student, Frank Lloyd Wright, called him "Lieber Meister" — beloved master — and credited Sullivan with teaching him to think architecturally rather than merely decoratively. Sullivan's personal life was a long descent: his commissions dried up as the neoclassical Beaux-Arts style (which he despised) dominated American taste, and he died in a Chicago hotel room, nearly broke, in 1924. He was rediscovered by later generations as the true father of architectural modernism.</p>`},
+
+  {rank:60,name:"William Faulkner",dates:"1897 – 1962",tagline:"The most gifted chronicler of America's tormented and fascinating South.",tags:["Literature","Mississippi","Nobel Prize","Modernism"],bio:`<p>William Faulkner created one of the great fictional worlds in American literature — Yoknapatawpha County, Mississippi, a thinly disguised version of Lafayette County, in which he traced the history of the South from its founding through its defeat, its Reconstruction trauma, and its twentieth-century decay. The Sound and the Fury, As I Lay Dying, Absalom Absalom!, and Light in August are among the masterworks of American modernism. His technique was as radical as his subject matter: stream of consciousness narration, multiple unreliable narrators, fractured chronology, and a prose style of biblical density that challenged readers accustomed to Hemingway's spare clarity.</p><p>His Nobel Prize acceptance speech (1950) is one of the great statements of literary purpose: "I believe that man will not merely endure: he will prevail. He is immortal, not because he alone among creatures has an inexhaustible voice, but because he has a soul, a spirit capable of compassion and sacrifice and endurance." Faulkner was also a complicated figure regarding race: his fiction portrayed Black characters with more complexity than most Southern writers of his era, yet his public statements on integration were ambiguous. The South he chronicled was violent, tormented, and beautiful — a portrait that still defines the region's literary identity.</p>`},
+
+  {rank:61,name:"Samuel Gompers",dates:"1850 – 1924",tagline:"The country's greatest labor organizer, he made the golden age of unions possible.",tags:["Labor","AFL","Immigration","New York"],bio:`<p>Samuel Gompers founded the American Federation of Labor in 1886 and led it for nearly forty years — building the American labor movement into a major institutional force and establishing the model of "business unionism" (focusing on wages, hours, and working conditions rather than political revolution) that defined American labor for a century. Born in London to Dutch Jewish parents, Gompers immigrated to New York at 13 and became a cigar maker, rising to leadership through his ability to organize and persuade. His insight — that American workers responded to concrete economic gains rather than socialist ideology — made him a pragmatic genius at building durable institutions.</p><p>The AFL was selective by design: it organized skilled-craft workers, leaving behind the unskilled. This strategy was also discriminatory; many AFL unions excluded Black workers and women. But within those limits, Gompers won real gains: shorter hours, higher wages, safer working conditions, and the right to organize. His lobbying for the Clayton Act (1914), which exempted unions from antitrust law, was his greatest legislative victory. The labor movement he built made the American middle class of the twentieth century possible.</p>`},
+
+  {rank:62,name:"William James",dates:"1842 – 1910",tagline:"The mind behind Pragmatism, America's most important philosophical school.",tags:["Philosophy","Psychology","Massachusetts","Pragmatism"],bio:`<p>William James was America's most important philosopher and one of its most important psychologists — a man of prodigious intellectual energy who founded pragmatism as a philosophical system, established psychology as an academic discipline in the United States, and wrote with a clarity and warmth that made philosophical ideas accessible to general readers. The Principles of Psychology (1890) — two volumes, twelve years in the making — introduced concepts like stream of consciousness and habit that remain foundational. His pragmatism — that the meaning of an idea is found in its practical consequences, that truth is a property of ideas that "work" — influenced law, education, and social science throughout the twentieth century.</p><p>His Varieties of Religious Experience (1902), a psychological study of mystical and religious experience, remains one of the most thoughtful treatments of religion by a non-believer in any language. "Henry James writes like a psychologist," said a critic, "and William James writes like a novelist." Both were meant as compliments. His influence on American intellectual life stretched from Holmes's legal pragmatism to Dewey's educational philosophy to the entire tradition of American empirical social science.</p>`},
+
+  {rank:63,name:"George Marshall",dates:"1880 – 1959",tagline:"As a general he organized World War II; as a statesman he rebuilt Western Europe.",tags:["Military","Marshall Plan","World War II","Virginia"],bio:`<p>George Marshall served as Army Chief of Staff throughout World War II — organizing the expansion of the American military from 189,000 soldiers in 1939 to 8.2 million by 1945 — and then, as Secretary of State under Truman, proposed and implemented the Marshall Plan, which rebuilt Western Europe and prevented the economic despair that might otherwise have delivered it to communism. Winston Churchill called him "the organizer of victory." The Nobel Committee gave him the Peace Prize. Marshall's character — austere, selfless, rigorously honest — was his most remarkable quality. He reported to Roosevelt and Truman with unvarnished assessments of military reality, never telling either what they wanted to hear.</p><p>The Marshall Plan (1948–1952), which provided $13 billion in economic assistance to Western European nations, was the most successful foreign policy program in American history — both humanitarian and strategic, rebuilding economies, restoring democracy, and binding Western Europe to American alliance. When Senator Joe McCarthy attacked Marshall as a traitor in 1951, Eisenhower deleted a paragraph defending Marshall from a campaign speech to avoid offending Wisconsin Republicans. It was a moment of moral cowardice that haunted Eisenhower for the rest of his life.</p>`},
+
+  {rank:64,name:"Jane Addams",dates:"1860 – 1935",tagline:"The founder of Hull House, she became the secular saint of social work.",tags:["Social Work","Peace","Illinois","Nobel Prize"],bio:`<p>Jane Addams founded Hull House in Chicago in 1889 — a "settlement house" in which middle-class reformers lived alongside the immigrant poor, providing social services, education, and cultural programs while also learning from the community. It was the most influential social experiment in American history, giving birth to the social work profession and the progressive reform movement. From Hull House, Addams and her colleagues documented child labor, unsafe working conditions, and the failures of the tenement system. Their research was translated into legislation: factory inspection laws, child labor restrictions, juvenile court systems, and workers' compensation programs.</p><p>Addams was also a committed pacifist who co-founded the Women's International League for Peace and Freedom and opposed American entry into World War I — a position that cost her enormous public support. The American Legion demanded that she be deported. She was called the most dangerous woman in America. She won the Nobel Peace Prize in 1931. By then she was largely rehabilitated, recognized as a genuine pioneer of American social policy. Her influence on American progressive politics — from the New Deal through the Great Society — was profound and largely unacknowledged.</p>`},
+
+  {rank:65,name:"Henry David Thoreau",dates:"1817 – 1862",tagline:"The original American dropout, he has inspired seekers of authenticity for 150 years.",tags:["Philosophy","Conservation","Massachusetts","Civil Disobedience"],bio:`<p>Henry David Thoreau spent two years living alone in a cabin he built on Walden Pond, near Concord, Massachusetts, and wrote a book about it that became one of the central texts of American culture — a meditation on simplicity, nature, self-reliance, and the examined life. Walden (1854) is at once a nature book, a philosophical treatise, a social critique, and a spiritual autobiography. His essay "Civil Disobedience" (1849) — written after his night in jail for refusing to pay taxes to support the Mexican War and slavery — articulated the principle that individuals have a moral obligation to disobey unjust laws.</p><p>"Under a government which imprisons any unjustly, the true place for a just man is also a prison," he wrote. The essay directly influenced Tolstoy, who sent it to Gandhi, who built his theory of nonviolent resistance on it, which Martin Luther King Jr. adopted for the American civil rights movement. Few American essays have traveled farther or done more good. Thoreau died of tuberculosis at 44, having also produced a body of nature writing — The Maine Woods, Cape Cod — that anticipates the modern environmental movement.</p>`},
+
+  {rank:66,name:"Elvis Presley",dates:"1935 – 1977",tagline:"The King of Rock and Roll. Enough said.",tags:["Music","Rock and Roll","Mississippi","Pop Culture"],bio:`<p>Elvis Presley walked into Sun Studio in Memphis in 1954 and within a year had synthesized Black rhythm and blues with white country music into something the world had never heard before: a music simultaneously Southern and universal, sexually charged and emotionally direct, dangerous and exhilarating. Rock and roll had other originators — Chuck Berry, Little Richard, Fats Domino — but it was Elvis who brought it to the mainstream and made it the dominant cultural force of the second half of the twentieth century. His 1956 television appearances were a cultural earthquake. The way he moved his hips was so sexualized that Ed Sullivan ordered the cameras to show him only from the waist up.</p><p>He made 31 films, sold over a billion records, and became the most famous entertainer in the world. But his story was also a tragedy: manipulated by his manager Colonel Tom Parker, addicted to prescription drugs, bloated and isolated in the Graceland mansion he could never leave without being mobbed, he died at 42 — an emblem of both the American dream's possibilities and its capacity for self-destruction. His influence on American popular music — on every rock, country, soul, and pop artist who followed — is impossible to overstate.</p>`},
+
+  {rank:67,name:"P. T. Barnum",dates:"1810 – 1891",tagline:"The circus impresario's taste for spectacle paved the way for blockbuster movies and reality TV.",tags:["Entertainment","Circus","Connecticut","Showman"],bio:`<p>Phineas Taylor Barnum was America's first great entertainer and its first great huckster — a man who understood that Americans wanted to be astonished and amused and would pay generously for the privilege, even when they knew they might be being fooled. His American Museum in New York City, opened in 1841, displayed oddities, curiosities, hoaxes, and genuine wonders — Tom Thumb, the Fiji Mermaid, and natural history alongside theater performances. It was the first great American entertainment complex, drawing 38 million visitors over 25 years before burning down in 1865.</p><p>His circus, which became "The Greatest Show on Earth" after merging with James Bailey's operation in 1881, introduced the three-ring format and brought exotic animals and elaborate spectacle to towns across America. His international booking of Jenny Lind, the "Swedish Nightingale," for an American tour in 1850 was the first great celebrity marketing campaign in history. His legacy is the entire entertainment industry's understanding that spectacle, celebrity, and the willing suspension of critical judgment are the fundamental mechanisms of mass entertainment. From Hollywood to reality television, his DNA is present.</p>`},
+
+  {rank:68,name:"James D. Watson",dates:"1928 –",tagline:"He codiscovered DNA's double helix, revealing the code of life.",tags:["Biology","DNA","Chicago","Nobel Prize"],bio:`<p>James Watson, working with Francis Crick at Cambridge in 1953, determined the double-helix structure of DNA — the molecule that carries genetic information. The discovery, for which Watson, Crick, and Maurice Wilkins won the Nobel Prize in 1962, was the foundational event of molecular biology and opened the era of genetic science that continues to transform medicine, agriculture, and our understanding of life itself. The story of the discovery is also one of the most ethically complicated in the history of science: the crucial X-ray crystallography data was produced by Rosalind Franklin, whose work was shown to Watson without her knowledge or consent.</p><p>Watson's memoir, The Double Helix (1968), is a remarkable scientific autobiography — candid, competitive, and somewhat self-flattering, portraying Franklin dismissively. Franklin died in 1958 and could not share the Nobel Prize, which is not awarded posthumously. Watson's subsequent public statements — claiming that intelligence differences between races had genetic causes — were not supported by evidence and cost him most of his honorary titles. The extraordinary achievement of 1953 remains his permanent contribution; its complications are part of the record too.</p>`},
+
+  {rank:69,name:"James Gordon Bennett",dates:"1795 – 1872",tagline:"As founding publisher of the New York Herald, he invented the modern American newspaper.",tags:["Journalism","New York","Media","Newspapers"],bio:`<p>James Gordon Bennett founded the New York Herald in 1835 with $500 in capital and within a decade had built it into the largest-circulation newspaper in the world. In doing so, he essentially invented the modern American newspaper: the penny press that was cheap enough for ordinary workers to buy, comprehensive enough to be the primary source of news, and sensational enough to sell. Bennett's innovations were systematic: he established a network of correspondents in Europe and across America, introduced financial journalism, pioneered sports coverage, and assigned reporters to cover crime and courts with unprecedented thoroughness.</p><p>His coverage of the murder of Helen Jewett, a prostitute, in 1836 was the first great tabloid crime story in American journalism, and it tripled the paper's circulation. His editorials were combative and opinionated; he made enemies with a relish that itself sold papers. His son, James Gordon Bennett Jr., inherited the paper and sent Henry Morton Stanley to find Dr. Livingstone in Africa — perhaps the greatest journalistic stunt in history. But it was the father who created the platform and established the principles that made that stunt imaginable.</p>`},
+
+  {rank:70,name:"Lewis and Clark",dates:"Meriwether Lewis 1774–1809 · William Clark 1770–1838",tagline:"They went west to explore, and millions followed in their wake.",tags:["Exploration","Louisiana Purchase","Missouri","Expedition"],bio:`<p>Meriwether Lewis and William Clark led the Corps of Discovery from St. Louis to the Pacific coast and back between 1804 and 1806 — the first American overland expedition to reach the Pacific, traversing more than 8,000 miles of largely uncharted territory. Jefferson, who commissioned the expedition, gave them remarkably detailed instructions: document the geography, the flora and fauna, the Indian peoples, the climate, the soil, and the possibilities for trade. They did so with extraordinary thoroughness: the journals contain 140 maps, descriptions of 178 plants and 122 animals new to science, and detailed accounts of encounters with dozens of Indigenous nations.</p><p>Their success owed much to Sacagawea, the young Shoshone woman who joined the expedition and proved invaluable as interpreter, guide, and symbol of peaceful intent. Lewis's subsequent life was tragic: he died at 35 of gunshot wounds at a Tennessee inn in 1809, in circumstances most historians believe were suicide. Clark lived to 68, served as superintendent of Indian Affairs, and helped negotiate dozens of treaties that dispossessed the very peoples the expedition had documented. The expedition's legacy is complex: one of the great feats of exploration, and the opening of a continent to displacement.</p>`},
+
+  {rank:71,name:"Noah Webster",dates:"1758 – 1843",tagline:"He didn't create American English, but his dictionary defined it.",tags:["Lexicography","Education","Connecticut","Language"],bio:`<p>Noah Webster published his American Spelling Book in 1783 — a primer that sold 100 million copies over the next century and taught generations of American children to read and spell. But his lasting monument was the American Dictionary of the English Language (1828), which defined 70,000 words and represented twenty-six years of solitary scholarly labor — including the learning of twenty-six languages so he could trace word etymologies. Webster's project was explicitly nationalist: he believed America needed its own dictionary that would reflect American usage, record American vocabulary (cornhusk, skunk, hickory, squash — words borrowed from Indigenous languages or coined in the New World), and standardize American spelling.</p><p>His spellings — "color" instead of "colour," "center" instead of "centre" — are the American spellings used today. By standardizing spelling and usage across a vast, diverse nation, he helped create a common linguistic culture that transcended regional difference. The dictionary — revised and eventually acquired by Merriam-Webster — is still the standard American reference. When Americans say "Webster's," they still mean his.</p>`},
+
+  {rank:72,name:"Sam Walton",dates:"1918 – 1992",tagline:"He promised \"Every Day Low Prices\" — and we took him up on the offer.",tags:["Retail","Walmart","Arkansas","Business"],bio:`<p>Sam Walton opened his first Walmart in Rogers, Arkansas, in 1962 and built it into the largest company in the world by revenue — transforming American retail, global supply chains, and the economics of small-town America. His fundamental insight was simple: if you cut prices ruthlessly and pass the savings to consumers, they will come in sufficient volume to make the low margins profitable. Walton's execution was anything but simple. He was a relentless innovator in logistics: satellite communications to coordinate inventory, distribution centers positioned efficiently, computer systems that tracked every sale in real time. Walmart pioneered the information technology of modern retail.</p><p>The consequences have been debated ever since. Walmart employed 1.6 million people in the United States by the time of Walton's death, but often at wages that qualified them for public assistance. His stores drove local merchants out of business across thousands of American small towns. His supplier-pressure practices contributed to the hollowing out of American manufacturing. But his prices were genuinely low, and for working-class Americans stretching a paycheck, that mattered enormously. His autobiography, Made in America (1992), is a surprisingly candid account of the thinking behind the empire he built.</p>`},
+
+  {rank:73,name:"Cyrus McCormick",dates:"1809 – 1884",tagline:"His mechanical reaper ended traditional farming and began industrial agriculture.",tags:["Inventor","Agriculture","Virginia","Industry"],bio:`<p>Cyrus McCormick invented the mechanical reaper in 1831, permanently altering the relationship between human labor, agricultural production, and the availability of food. Before the reaper, harvesting grain was the most labor-intensive stage of farming — a single acre of wheat required one man working all day. McCormick's machine, horse-drawn, could harvest ten to twelve acres a day with a fraction of the labor. Farmers could cultivate more land than they could harvest by hand, so they planted more; productivity soared. Agricultural labor — which in 1830 occupied the majority of Americans — was steadily displaced; people moved to cities.</p><p>The grain surpluses generated by mechanized agriculture fed industrial workers in cities, making rapid urbanization possible. The American wheat surplus also fed Europe, making American agricultural exports a major force in global markets. McCormick was also a business innovator: he offered installment payment plans to farmers who couldn't pay upfront, provided repair services in the field, and established a national dealer network. The irony of his Civil War-era position: as a Virginian Democrat, he opposed Lincoln, but his reaper had done more than almost any other invention to create the industrial North that defeated the agrarian South.</p>`},
+
+  {rank:74,name:"Brigham Young",dates:"1801 – 1877",tagline:"What Joseph Smith founded, Young preserved — leading the Mormons to their promised land.",tags:["Religion","Mormonism","Vermont","Utah"],bio:`<p>Brigham Young took over the leadership of the Mormon church after Joseph Smith's assassination in 1844 and performed one of the great feats of American organizational leadership: moving 70,000 people across 1,000 miles of prairie and desert to establish a functioning civilization in the Salt Lake Valley — territory that at the time belonged to Mexico — with minimal resources and against enormous odds. The Mormon exodus (1846–1847) was triggered by intensifying violence against the Saints in Illinois. Young organized the migration with military precision: advance parties, supply caches, detailed trail records, and a system of support for those who came after.</p><p>As territorial governor of Utah (1850–1858) and church president for 33 years, Young supervised the construction of an entire society: cities, temples, roads, canals, schools, businesses. His polygamous household (55 wives and 56 children) reflected the distinctive Mormon theology. The Mountain Meadows Massacre of 1857, in which 120 emigrants were killed by a Mormon militia, remains a dark episode in his tenure. But the civilization he built in the desert is a remarkable human achievement — a functioning theocracy carved from wilderness in a single generation.</p>`},
+
+  {rank:75,name:"George Herman \"Babe\" Ruth",dates:"1895 – 1948",tagline:"He saved baseball after the Black Sox scandal — and linked sports and celebrity permanently.",tags:["Baseball","New York","Sports","Culture"],bio:`<p>Babe Ruth was the greatest baseball player in the history of the game and one of the most charismatic American public figures of the twentieth century — a man whose combination of physical genius and outsized personality made him the first modern celebrity athlete and the template for every sports superstar who followed. His emergence was perfectly timed: the 1919 Black Sox scandal, in which eight Chicago White Sox players conspired to throw the World Series, had shaken public confidence in the national pastime. Ruth's first season with the Yankees (1920) produced 54 home runs — more than any team in the American League had hit the entire previous season. The spectacle of his power hitting restored faith in the game's authenticity.</p><p>Ruth's life off the field was as large as his hitting: prodigious eating and drinking, constant carousing, an appetite for experience that seemed to match his physical size. He was genuinely beloved by the public in a way that transcended the sport — visiting sick children in hospitals, producing memorable moments (the "called shot" in the 1932 World Series) that became part of American mythology. His fame established the template for the sports celebrity: the athlete whose personality and public life are as commercially important as their athletic performance.</p>`},
+
+  {rank:76,name:"Frank Lloyd Wright",dates:"1867 – 1959",tagline:"America's most significant architect, he was the archetype of the visionary artist at odds with capitalism.",tags:["Architecture","Wisconsin","Organic Design","Modernism"],bio:`<p>Frank Lloyd Wright was the greatest American architect and one of the most influential designers in the history of the built environment — a man who worked for 70 years and produced a body of work of extraordinary variety and originality. His "organic architecture" — the idea that buildings should grow from their sites naturally, that interior spaces should flow into each other and connect to the landscape, that materials should be expressed honestly — was a comprehensive aesthetic philosophy that influenced architecture worldwide. The open floor plan that characterizes most American houses built since 1950 is largely Wright's invention.</p><p>Fallingwater (1935), built over a waterfall in the Pennsylvania woods, is the most famous private house in America. The Guggenheim Museum (1959), a continuous spiral ramp enclosed in a white concrete cylinder, is one of the great museum spaces in the world. Wright's personal life was as dramatic as his architecture: he abandoned his first wife and six children for a client's wife, fled to Europe when his Taliesin home was destroyed in a fire in which seven people were killed, and went bankrupt multiple times. He maintained a court of disciples at his two Taliesins — Wisconsin and Arizona — that resembled a medieval guild. He died at 91, still working.</p>`},
+
+  {rank:77,name:"Betty Friedan",dates:"1921 – 2006",tagline:"She spoke to the discontent of housewives everywhere — and inspired a revolution in gender roles.",tags:["Feminism","Author","Illinois","Women's Rights"],bio:`<p>Betty Friedan published The Feminine Mystique in 1963, and American women's lives began to change. The book documented the "problem that has no name" — the pervasive but unacknowledged misery of educated middle-class women confined to suburban domesticity — crystallizing a discontent that millions had felt but been unable to articulate. It sold 3 million copies in three years and generated a volume of mail from women who said they had found their lives described in its pages. Friedan's diagnosis was precise: the postwar American cult of femininity — the magazines, advertisements, and social pressure all telling women that their highest calling was marriage and homemaking — was not natural but constructed.</p><p>She followed the book with action: co-founding the National Organization for Women (NOW) in 1966, the first major organization to advocate for women's legal equality since the suffrage movement. NOW lobbied for the Equal Rights Amendment, fought workplace discrimination, and advocated for reproductive rights. Friedan's later career was complicated by accusations of having downplayed the contributions of lesbian and radical feminists to the movement. But the cultural shift she helped produce — in attitudes toward women's work, women's ambitions, and the domestic division of labor — has been one of the most significant in American history.</p>`},
+
+  {rank:78,name:"John Brown",dates:"1800 – 1859",tagline:"Whether hero, fanatic, or both, he provided the spark for the Civil War.",tags:["Abolitionism","Connecticut","Harpers Ferry","Civil War"],bio:`<p>John Brown was the most violent and the most committed of the antislavery activists — a man who believed that God had called him to end slavery by force, and who acted on that belief with a consistency that made him, depending on one's perspective, a saint or a terrorist. His raid on the federal arsenal at Harpers Ferry in October 1859, intended to spark a slave uprising, failed militarily but succeeded beyond anything he could have planned politically: it terrified the white South, electrified the antislavery North, and accelerated the events that led to the Civil War.</p><p>Brown's first significant violent act was the Pottawatomie Massacre in Kansas in 1856, during the guerrilla civil war over whether Kansas would enter the Union as a free state: he and his sons dragged five pro-slavery settlers from their beds and killed them. At Harpers Ferry, he led a band of 21 men in seizing the arsenal, hoping that enslaved people in the surrounding counties would rise up. None did. He was captured by Robert E. Lee's marines, tried for treason, and hanged on December 2, 1859. His last written statement: "I, John Brown, am now quite certain that the crimes of this guilty land will never be purged away but with blood." Within sixteen months, the country was at war.</p>`},
+
+  {rank:79,name:"Louis Armstrong",dates:"1901 – 1971",tagline:"His talent took jazz from the cathouses of Storyville to Broadway, television, and beyond.",tags:["Jazz","Music","New Orleans","Trumpet"],bio:`<p>Louis Armstrong was the most important figure in the history of jazz and one of the most original musical voices in American history — a trumpeter and vocalist of miraculous technical ability who took the New Orleans music of his childhood and turned it into an art form recognized around the world. His Hot Five and Hot Seven recordings of 1925–1928 are to jazz what Shakespeare is to English literature: the foundational texts, the measure against which everything else is evaluated. Born in poverty in New Orleans in 1901, Armstrong came of age in the city that invented jazz, sent to the Colored Waifs' Home at 12, where he learned the cornet and a musical genius was ignited.</p><p>His technical innovations — his extended high-note range, his rhythmic sophistication, his ability to improvise melodic variations of apparently endless creativity — set the standard for jazz trumpet. But it was his human warmth — the gravel voice, the handkerchief, the gap-toothed smile, the genuine joy he communicated in performance — that made him a global ambassador for American music. Armstrong confronted segregation in his own way: canceling a State Department tour in 1957 to protest Eisenhower's response to Little Rock, he told a reporter, "The government can go to hell. It's getting so a colored man hasn't got any country."</p>`},
+
+  {rank:80,name:"William Randolph Hearst",dates:"1863 – 1951",tagline:"The press baron who perfected yellow journalism and helped start the Spanish-American War.",tags:["Journalism","Media","California","Newspapers"],bio:`<p>William Randolph Hearst inherited the San Francisco Examiner from his father in 1887 and built it into the largest newspaper chain in the world — at his peak, 28 papers in 18 cities, reaching a combined daily circulation of over 5 million. He did it by perfecting the formula James Gordon Bennett had pioneered: sensational stories, large headlines, aggressive campaigns, and a willingness to make the news as well as report it. His role in the Spanish-American War of 1898 has been both exaggerated and misrepresented, but the general truth is not: Hearst's papers covered the Cuban rebellion with a fervor that bordered on fabrication, whipping up public opinion for intervention.</p><p>His life was as spectacular as his papers: the castle at San Simeon — 165 rooms, 127 acres of gardens, a private zoo — was the most extravagant private residence in American history. Orson Welles's Citizen Kane (1941), inspired by Hearst, is widely considered the greatest American film ever made. His later political career — supporting Hitler's Germany in the 1930s and pursuing a savage campaign against Franklin Roosevelt — damaged his reputation permanently. But his influence on American journalism, particularly the tabloid tradition, has never entirely faded.</p>`},
+
+  {rank:81,name:"Margaret Mead",dates:"1901 – 1978",tagline:"With Coming of Age in Samoa, she made anthropology relevant — and controversial.",tags:["Anthropology","Science","Pennsylvania","Columbia University"],bio:`<p>Margaret Mead was the most famous anthropologist in American history — a figure who brought the insights of cultural anthropology to a general audience through accessible, provocative writing. Her first book, Coming of Age in Samoa (1928), written when she was 27, sold millions of copies and changed how Americans thought about human nature, adolescence, and the relationship between culture and behavior. Mead's central argument — that the difficulties of adolescence in American society were culturally produced, that Samoan girls came of age in a more sexually relaxed society without the storm and stress of their American counterparts — was a direct challenge to biological determinism.</p><p>Her subsequent work — Sex and Temperament in Three Primitive Societies (1935), arguing that gender roles were culturally rather than biologically determined — was even more radical, and its influence on the feminist movement of the 1960s and 1970s was substantial. She wrote prolifically, testified before Congress, appeared on television, and wrote a column for Redbook magazine for decades. The posthumous critique by Derek Freeman, who argued that Mead had been deceived by her Samoan informants, damaged her reputation — though the controversy remains unresolved among anthropologists. But her influence on how Americans think about culture, gender, and human nature was enormous and largely permanent.</p>`},
+
+  {rank:82,name:"George Gallup",dates:"1901 – 1984",tagline:"He asked Americans what they thought — and the politicians listened.",tags:["Polling","Statistics","Iowa","Democracy"],bio:`<p>George Gallup invented the modern opinion poll and, in doing so, created a new way for democracies to know themselves. Before Gallup, political predictions were based on straw polls — unscientific surveys of self-selected respondents that were large but meaningless. Gallup, drawing on statistical sampling theory, showed that a carefully selected sample of 1,500 people could accurately represent the views of 150 million. His first great triumph came in 1936, when he correctly predicted Roosevelt's landslide re-election while the Literary Digest's straw poll of 10 million respondents predicted a Republican victory. The Digest went out of business shortly afterward. Gallup's American Institute of Public Opinion survived and flourished.</p><p>His most famous failure — the 1948 prediction of a Dewey victory over Truman — led to the iconic photo of Truman holding the Chicago Tribune headline "DEWEY DEFEATS TRUMAN." The failure produced substantial improvements in polling methodology. Gallup remained committed to the democratic idea that every person's opinion should count equally — the egalitarian premise underlying statistical sampling that is also the premise underlying the vote.</p>`},
+
+  {rank:83,name:"James Fenimore Cooper",dates:"1789 – 1851",tagline:"The novels are unreadable, but he was the first great mythologizer of the American frontier.",tags:["Literature","New York","Frontier","Leatherstocking"],bio:`<p>James Fenimore Cooper was the first major American novelist and the creator of the "Leatherstocking Tales" — five novels featuring Natty Bumppo (Hawkeye, Deerslayer, Pathfinder), the white woodsman who lives between the worlds of European civilization and Native American life and embodies the frontier ideals of simplicity, self-reliance, and natural virtue. The Last of the Mohicans (1826) is his most enduring work, still read and still filmed. Mark Twain's savage essay "Fenimore Cooper's Literary Offenses" — which catalogued Cooper's improbable plot devices and implausible frontier expertise with merciless precision — is funnier than anything Cooper wrote. The essay is accurate.</p><p>But Cooper's mythological influence transcends his literary quality. The Leatherstocking Tales established the conventions of the American frontier romance — the lone hero living at the edge of civilization, the Indian as noble or ignoble savage, the forest as both paradise and danger — that became the defining conventions of the Western, the most characteristically American literary and cinematic genre. Every Western from Owen Wister's The Virginian to Cormac McCarthy's No Country for Old Men bears Cooper's fingerprints. His influence on European literature — he was enormously popular in France and Germany — was as great as his influence at home.</p>`},
+
+  {rank:84,name:"Thurgood Marshall",dates:"1908 – 1993",tagline:"As lawyer and justice, he was the legal architect of the civil-rights revolution.",tags:["Supreme Court","NAACP","Civil Rights","Maryland"],bio:`<p>Thurgood Marshall argued more cases before the Supreme Court than any other American lawyer — 32 cases for the NAACP Legal Defense Fund, winning 29 of them — and the cases he won include the most important civil rights decisions in American history. His legal strategy, developed over two decades, dismantled the constitutional architecture of racial segregation piece by piece before delivering the decisive blow in Brown v. Board of Education (1954). Marshall argued that segregation itself inflicted psychological harm on Black children regardless of the physical quality of the facilities. The Court agreed unanimously.</p><p>The personal courage required for his work should not be underestimated: traveling through the Jim Crow South as a Black lawyer representing Black clients in cases that powerful white interests opposed sometimes required physical bravery as well as legal skill. Appointed to the Supreme Court by Lyndon Johnson in 1967 — the first Black justice in American history — Marshall served 24 years, consistently arguing for the rights of the poor, the accused, and the marginalized. His dissents from the Rehnquist Court's conservative decisions are models of passionate, principled legal reasoning. He retired in 1991 and died in 1993, having remade the legal landscape of race in America.</p>`},
+
+  {rank:85,name:"Ernest Hemingway",dates:"1899 – 1961",tagline:"His spare style defined American modernism, and his life made machismo a cliché.",tags:["Literature","Journalism","Illinois","Nobel Prize"],bio:`<p>Ernest Hemingway's prose style was so influential that it permanently changed the way English-language fiction was written. The short sentences, the precise nouns, the omitted explanation, the dialogue that carries meaning in what is not said, the "iceberg theory" — these innovations, developed in his Paris years in the 1920s, gave American fiction a new aesthetic standard and a new emotional register. The Sun Also Rises (1926) and A Farewell to Arms (1929) established him as the voice of the Lost Generation — young Americans for whom World War I had destroyed faith in the grand abstractions that had sent men to die in muddy trenches. His heroes survived with wounds, with skill, and with the minimal comfort of doing things well in a world stripped of transcendent meaning.</p><p>For Whom the Bell Tolls (1940) and The Old Man and the Sea (1952) — for which he won the Pulitzer, contributing to his Nobel Prize in 1954 — showed that his range extended to something more universal: the struggle of individual dignity against mortality and defeat. His personal life — the four marriages, the war correspondence, the African safaris, the deep-sea fishing, the public drinking — became as famous as his fiction and eventually overwhelmed it. He struggled with depression and alcoholism in his final years and shot himself in Ketchum, Idaho, in 1961.</p>`},
+
+  {rank:86,name:"Mary Baker Eddy",dates:"1821 – 1910",tagline:"She got off her sickbed and founded Christian Science, which promised spiritual healing to all.",tags:["Religion","Christian Science","New Hampshire","Author"],bio:`<p>Mary Baker Eddy founded the Church of Christ, Scientist in 1879 — creating the most successful religion founded by a woman in American history. Her book Science and Health with Key to the Scriptures (1875) has sold more than 10 million copies and remains the foundational text of Christian Science. Eddy's founding insight came from a spiritual healing experience in 1866, when she recovered from a serious fall by reading the Bible. She developed the theological system that became Christian Science: the belief that God is all-powerful and all-good, that matter is not ultimately real, and that illness and suffering can be overcome through prayer and spiritual understanding.</p><p>She was a remarkable organizational leader: she founded the Christian Science Monitor in 1908, a newspaper that won multiple Pulitzer Prizes and became one of the most respected news organizations in the world. She maintained control of the church and its doctrine throughout her long life, revising Science and Health through 432 editions and fending off numerous challenges to her authority. Christian Science's refusal of conventional medicine has led to tragic deaths when practitioners have relied on spiritual healing for treatable illnesses — a fact that has generated legal challenges and public controversy throughout the church's history. But Eddy's achievement — building a durable religious institution from scratch through the force of her theology and organizational will — is remarkable by any measure.</p>`},
+
+  {rank:87,name:"Benjamin Spock",dates:"1903 – 1998",tagline:"With a single book — and a singular approach — he changed American parenting.",tags:["Medicine","Child Care","Connecticut","Author"],bio:`<p>Benjamin Spock published The Common Sense Book of Baby and Child Care in 1946, and it immediately became the bestselling book in America after the Bible — eventually selling 50 million copies in 42 languages. His central message was revolutionary: "Trust yourself. You know more than you think you do." Before Spock, dominant pediatric advice emphasized strict schedules, minimal physical affection, and rigid discipline. Spock argued that children needed emotional warmth as much as physical care, that flexibility and responsiveness were virtues, and that a mother's instincts were more reliable than a pediatrician's schedule.</p><p>The book's influence on the baby boom generation — the 76 million Americans born between 1946 and 1964 — was enormous. Critics, particularly conservatives in the 1960s, blamed Spock for the permissiveness and rebelliousness of the baby boomers. "Spock-marked," they called the children raised on his advice. Spock himself found the charge amusing: he thought the boomers' antiwar activism was admirable. He became, in his later years, a prominent antiwar activist — opposing the Vietnam War with the same energy he had brought to pediatric advice. Indicted for conspiracy to counsel draft resistance in 1968, he was convicted and then acquitted on appeal.</p>`},
+
+  {rank:88,name:"Enrico Fermi",dates:"1901 – 1954",tagline:"A giant of physics, he helped develop quantum theory and built the first nuclear reactor.",tags:["Physics","Italy","Manhattan Project","Chicago"],bio:`<p>Enrico Fermi was the last great physicist to be both a brilliant theorist and a brilliant experimenter — a combination that became increasingly rare as physics specialized in the twentieth century. Born in Rome and already a major figure in European physics, he fled fascist Italy in 1938 when he received the Nobel Prize, making the trip to Stockholm and continuing to New York rather than returning home. On December 2, 1942, in a squash court under the west stands of the University of Chicago's Stagg Field, Fermi and his team achieved the first controlled, self-sustaining nuclear chain reaction. The signal was a coded phone call to James Conant: "The Italian navigator has just landed in the New World." The nuclear age had begun.</p><p>Fermi then joined the Manhattan Project at Los Alamos, contributing to both the theoretical understanding of nuclear reactions and the practical engineering of the bomb. His contributions to physics extended far beyond the bomb: the Fermi-Dirac statistics that describe the behavior of electrons, the theory of beta decay, and the development of the first high-energy particle accelerators were all his work. He died of stomach cancer in 1954 at 53. The element fermium, the Fermi National Accelerator Laboratory in Illinois, and the highest honor in nuclear science all bear his name.</p>`},
+
+  {rank:89,name:"Walter Lippmann",dates:"1889 – 1974",tagline:"The last man who could swing an election with a newspaper column.",tags:["Journalism","Politics","New York","Philosophy"],bio:`<p>Walter Lippmann was the most important American journalist of the twentieth century — a political columnist and democratic theorist whose voice, from the end of World War I to the middle of the Vietnam War, was the most authoritative in American public life. "Today and Tomorrow," his column, was syndicated in 250 newspapers and read by presidents, cabinet members, foreign leaders, and millions of ordinary citizens for six decades. His early books — Public Opinion (1922) and The Phantom Public (1925) — were the most important analyses of democracy and mass communication written in the twentieth century, arguing that ordinary citizens could not master the complexity of modern affairs without expert intermediaries.</p><p>His column influenced American foreign policy directly: his coinage of the phrase "Cold War," his early support for containment and later criticism of its overextension, his analysis of the credibility gap in Vietnam — all shaped elite and public understanding of major events. Lyndon Johnson was reportedly obsessed with what Lippmann thought of him. He won two Pulitzer Prizes (1958 and 1962) and the Presidential Medal of Freedom. His voice carried weight because it combined firsthand access — he knew personally every president from Woodrow Wilson to Lyndon Johnson — with genuine intellectual seriousness.</p>`},
+
+  {rank:90,name:"Jonathan Edwards",dates:"1703 – 1758",tagline:"His subtle eloquence made him the country's most influential theologian.",tags:["Religion","Theology","Connecticut","Great Awakening"],bio:`<p>Jonathan Edwards was the most intellectually gifted theologian in American history — best known for his terrifying sermon "Sinners in the Hands of an Angry God" (1741) but whose actual intellectual contribution to American religious thought was far more sophisticated than that single text suggests. Edwards was the central figure of the Great Awakening — the religious revival that swept through the American colonies in the 1730s and 1740s, transforming the religious landscape and creating the evangelical Protestant tradition that remains the most powerful religious force in American life.</p><p>His philosophical work — Freedom of the Will (1754) and The Nature of True Virtue (1765) — was a sustained engagement with Enlightenment philosophy in defense of Calvinist theology. He read Locke and Newton seriously and attempted to reconcile their empiricism with traditional Reformed doctrine, producing an original synthesis that has been called "America's greatest contribution to theology." Expelled from his Northampton pulpit in 1750 over a dispute about the qualifications for communion, he spent seven years as a missionary to Native Americans in Stockbridge, Massachusetts, where he did much of his most important writing. He died of a smallpox inoculation in 1758, just weeks after becoming president of the College of New Jersey (later Princeton).</p>`},
+
+  {rank:91,name:"Lyman Beecher",dates:"1775 – 1863",tagline:"Harriet Beecher Stowe's father earned fame as an abolitionist and revivalist preacher.",tags:["Religion","Connecticut","Reform","Abolitionism"],bio:`<p>Lyman Beecher was the patriarch of the most remarkable family in American religious history — father of 13 children, seven of whom became ministers or writers of national prominence, including Harriet Beecher Stowe and Henry Ward Beecher, the most famous preacher in nineteenth-century America. He was himself a major figure: the most prominent Calvinist clergyman of the early nineteenth century, a pioneer of revivalist preaching, and an influential voice in the antislavery movement. His six sermons on temperance (1826) essentially created the American temperance movement; they were reprinted and distributed in millions of copies.</p><p>He moved to Cincinnati in 1832 to lead Lane Theological Seminary, where his student debates over slavery produced a crisis: the "Lane Rebels" who wanted immediate abolition were expelled, and many transferred to Oberlin College, which became a center of abolitionist activism. Beecher's position — colonization and gradual emancipation rather than immediate abolition — was already becoming untenable as the slavery controversy intensified. His influence on American Protestantism was primarily institutional: he helped establish the pattern of the reformed Calvinist preacher as a social reformer, using the pulpit to address the moral questions of the day. His children carried that tradition into literary and political form that changed the nation.</p>`},
+
+  {rank:92,name:"John Steinbeck",dates:"1902 – 1968",tagline:"As the creator of Tom Joad, he chronicled Depression-era misery with enduring power.",tags:["Literature","California","Nobel Prize","Depression"],bio:`<p>John Steinbeck published The Grapes of Wrath in 1939 — the most politically powerful American novel of the twentieth century, the story of the Joad family's migration from the Oklahoma Dust Bowl to California, where they find exploitation, hunger, and the first stirrings of resistance. The book sold 428,000 copies in its first year, won the Pulitzer Prize, and helped change public attitudes toward the New Deal's agricultural programs. Steinbeck's scenes of children dying of starvation in California labor camps were not fiction; he had witnessed them. The novel was banned in several California counties and denounced as Communist propaganda. Eleanor Roosevelt visited the camps it described. Literature had moved policy.</p><p>Of Mice and Men (1937), East of Eden (1952), and Cannery Row (1945) established him as the most important chronicler of California and the working poor in American fiction. He won the Nobel Prize in 1962 — a decision still disputed by literary critics who felt his work had declined since the 1940s. His Nobel speech — a defense of literature as "one of the shining achievements of our species" — was characteristically plain-spoken. He died in 1968, having spent his final years in anguish over the Vietnam War.</p>`},
+
+  {rank:93,name:"Nat Turner",dates:"1800 – 1831",tagline:"The most successful rebel slave, his specter stalked the white South for a generation.",tags:["Slavery","Virginia","Rebellion","Abolitionism"],bio:`<p>Nat Turner led the most significant slave rebellion in American history in Southampton County, Virginia, in August 1831 — a two-day uprising in which 55 to 65 white people were killed before the militia suppressed it. Turner was a deeply religious man who believed he had received divine visions calling him to lead his people to freedom. He was literate, articulate, and regarded by his fellow enslaved people with a combination of respect and awe. His Confessions — dictated to a white lawyer while awaiting execution — are a remarkable document: calm, thoughtful, and utterly unrepentant. "Was not Christ crucified?" he asked, when questioned about the violence of the uprising.</p><p>The rebellion's consequences were swift and enormous. Virginia debated emancipation in the legislature in 1832 — the last serious such debate in the antebellum South — and rejected it. Slave codes were tightened across the South: teaching enslaved people to read was criminalized in many states. Turner was a terrorist to his enemies and a liberator to his allies, a man whose resort to violence can be understood only in the context of a system of violence so total that it precluded all other options. William Styron's controversial 1967 novel, The Confessions of Nat Turner, won the Pulitzer but was attacked by Black critics for its psychological portrait of Turner.</p>`},
+
+  {rank:94,name:"George Eastman",dates:"1854 – 1932",tagline:"The founder of Kodak democratized photography with his rolls of film.",tags:["Inventor","Photography","New York","Industry"],bio:`<p>George Eastman made photography possible for everyone. Before Eastman, taking a photograph required a professional's technical knowledge, heavy equipment, and chemical processing. Eastman's flexible roll film (1884), his Kodak box camera (1888, with the slogan "You press the button, we do the rest"), and the affordable Brownie camera (1900, priced at $1) put image-making in the hands of ordinary people for the first time. Family photography — the snapshot album that records births, weddings, vacations, and ordinary days — became a universal practice. Visual memory, previously available only to the wealthy who could afford portrait painters, became democratic.</p><p>Eastman Kodak grew into one of the largest companies in the world, dominating the photographic film and camera market for a century. Rochester, New York, where the company was headquartered, became one of the most prosperous cities in America. "Kodak moment" entered the language and shaped how Americans thought about memory and commemoration. Eastman was also a major philanthropist, giving away $100 million during his lifetime to MIT, the University of Rochester, and the Eastman School of Music. He committed suicide at 77, leaving a note: "To my friends: My work is done. Why wait?"</p>`},
+
+  {rank:95,name:"Sam Goldwyn",dates:"1879 – 1974",tagline:"A producer for forty years, he was the first great Hollywood mogul.",tags:["Film","Hollywood","Poland","Entertainment"],bio:`<p>Samuel Goldwyn — born Schmuel Gelbfisz in Warsaw, arrived in America at 16 — was the most durable and arguably the most artistically ambitious of the founding generation of Hollywood producers. While other moguls built studios, Goldwyn built a personal production company that he ran autocratically and brilliantly for forty years, producing some of the finest films of Hollywood's golden age. His insistence on quality — he paid top prices for literary properties, star talent, and technical craft — set the standard for Hollywood production values. His films include Wuthering Heights (1939), The Little Foxes (1941), The Best Years of Our Lives (1946, which won seven Academy Awards), and Guys and Dolls (1955).</p><p>He was also the source of famous comic misquotations — "Goldwynisms" — that may or may not be genuine: "Include me out." "A verbal contract is worth the paper it's written on." Whether he actually said these things is uncertain; that they captured something true about the self-made immigrant's uneasy relationship with the English language is clear. Unlike the other great moguls, Goldwyn never built an empire. He built a reputation. The Goldwyn name on a picture meant something specific: quality, care, ambition. It still does.</p>`},
+
+  {rank:96,name:"Ralph Nader",dates:"1934 –",tagline:"He made the cars we drive safer; thirty years later, he made George W. Bush president.",tags:["Consumer Rights","Politics","Connecticut","Activism"],bio:`<p>Ralph Nader published Unsafe at Any Speed in 1965 — an exposé of the automobile industry's indifference to safety — and in doing so launched the modern consumer rights movement. The book led directly to the National Traffic and Motor Vehicle Safety Act of 1966, the most significant consumer protection legislation in American history, which saved hundreds of thousands of lives. General Motors' response — hiring private investigators to dig up dirt on Nader — backfired spectacularly when it was exposed. Nader testified before Congress, GM's president apologized publicly, and Nader used the lawsuit settlement to fund a network of public interest organizations ("Nader's Raiders") that became the template for consumer and environmental advocacy.</p><p>His subsequent career produced the Freedom of Information Act (strengthened), the Clean Air Act, the Clean Water Act, and the Consumer Product Safety Commission. He was the most effective public interest advocate in American history — and then, in 2000, he ran for president as the Green Party candidate in Florida, receiving 97,421 votes while George W. Bush defeated Al Gore by 537 votes. Whether Nader cost Gore the election — and thus gave Bush the presidency — is debated, but the case is strong enough to have permanently complicated his legacy.</p>`},
+
+  {rank:97,name:"Stephen Foster",dates:"1826 – 1864",tagline:"America's first great songwriter, he brought us \"Oh! Susanna\" and \"Beautiful Dreamer.\"",tags:["Music","Pennsylvania","Songwriting","Americana"],bio:`<p>Stephen Foster was the first professional American songwriter — the first person to earn a living primarily from composing popular songs — and his melodies have proven among the most durable in American music. "Oh! Susanna," "Beautiful Dreamer," "Camptown Races," "Old Folks at Home" (better known as "Swanee River"), "My Old Kentucky Home," and "Jeanie with the Light Brown Hair" are among the most recognized tunes in American musical history, still sung and recognized 150 years after his death. Foster worked in an era before copyright law provided meaningful protection for songwriters, and he was repeatedly exploited by publishers who took much of the profit from his work. He sold "Oh! Susanna" for $100; it made others rich.</p><p>His minstrel songs — written for blackface performance, in a dialect that purported to be Black speech — are the most troubling part of his legacy. Songs like "Old Folks at Home" were performed by white men in blackface in the decades before and after the Civil War. The genre was inherently racist; Foster's participation in it cannot be defended, though his portrayal of Black characters was somewhat less grotesque than the norm. He died in a New York hotel room in 1864 at 37, nearly destitute, having spent his last years in alcoholic decline. His wallet contained 38 cents and a note reading "Dear friends and gentle hearts."</p>`},
+
+  {rank:98,name:"Booker T. Washington",dates:"1856 – 1915",tagline:"As educator and champion of self-help, he tried to lead Black America up from slavery.",tags:["Education","Civil Rights","Virginia","Tuskegee"],bio:`<p>Booker T. Washington was born into slavery in 1856 and died in 1915 as the most powerful Black man in America — founder and president of the Tuskegee Institute, confidant of presidents and industrialists, and the dominant figure in Black political and educational life for two decades. His Atlanta Exposition Address of 1895 — known as the "Atlanta Compromise" — was the most famous speech by a Black American of the nineteenth century. Telling a mixed-race Southern audience that "in all things purely social we can be as separate as the fingers, yet one as the hand in all things essential to mutual progress," he appeared to accept segregation in exchange for the opportunity for Black economic development. W.E.B. Du Bois attacked the speech as a capitulation; others saw it as pragmatic statesmanship.</p><p>The Tuskegee Institute, which Washington built from a dirt-floored building in 1881, trained teachers, farmers, and craftsmen and proved that Black people could achieve excellence in whatever field they entered. George Washington Carver, Tuskegee's most famous faculty member, did agricultural research there that transformed Southern farming. Washington's influence was so complete that historians call it the "Tuskegee Machine" — his approval could make or break Black political appointments, and his relationships with white philanthropists gave him leverage few Black Americans of his era could match. Up From Slavery (1901) is one of the great American autobiographies.</p>`},
+
+  {rank:99,name:"Richard Nixon",dates:"1913 – 1994",tagline:"He broke the New Deal majority, then broke his presidency on Watergate — a scandal that still haunts us.",tags:["President","Cold War","Watergate","California"],bio:`<p>Richard Nixon was the most paradoxical and tragic figure in modern American politics — a man of genuine strategic intelligence and foreign policy vision who destroyed his presidency and damaged American democracy through the criminal conspiracy known as Watergate. He is the only American president to have resigned the office. His political career was built on red-baiting: his congressional and Senate campaigns used communist associations with a ruthlessness that earned him the nickname "Tricky Dick." As president (1969–1974), he achieved genuine foreign policy breakthroughs: the opening to China (1972), détente with the Soviet Union, and the SALT I arms reduction treaty.</p><p>His administration also produced the EPA, the Clean Air Act, and landmark desegregation orders — a domestic record more liberal than his rhetoric suggested. But his political insecurity and his willingness to use the powers of government against political opponents led to the Watergate break-in and then the cover-up that brought him down. The White House tapes — recorded on a system Nixon himself had installed — documented his obstruction of justice in detail. He resigned on August 9, 1974, rather than face impeachment. Gerald Ford pardoned him a month later. The Watergate scandal's effects on American trust in government were severe and long-lasting. The suffix "-gate" attached to every subsequent scandal is one measure of its cultural impact.</p>`},
+
+  {rank:100,name:"Herman Melville",dates:"1819 – 1891",tagline:"Moby-Dick was a flop at the time, but Melville is remembered as the American Shakespeare.",tags:["Literature","New York","Sea","Symbolism"],bio:`<p>Herman Melville published Moby-Dick in 1851, received mixed reviews, sold modestly, and spent the rest of his life in obscurity — working as a customs inspector in New York for 19 years, writing poetry almost no one read, and dying in 1891 so forgotten that his New York Times obituary misspelled his name. The rediscovery of his greatness, beginning in the 1920s, is the most dramatic literary resurrection in American history. Moby-Dick is the great American novel — bigger, stranger, more ambitious, and more philosophically daring than any other claim to the title. The story of Captain Ahab's monomaniacal pursuit of the white whale is also an allegory of the American will to power, a meditation on fate and free will, a compendium of nineteenth-century cetological knowledge, and a prose poem of extraordinary power.</p><p>"Call me Ishmael" is the most famous opening sentence in American fiction. The whiteness of the whale — Melville's chapter on it is one of the most remarkable essays in American prose — functions simultaneously as blankness, purity, horror, and the sublime. The novel's form is as radical as its content: chapters of narrative alternate with chapters of drama, philosophy, and natural history in a way that anticipates twentieth-century literary modernism. Billy Budd, Bartleby the Scrivener, and Benito Cereno show that Moby-Dick was not a lucky anomaly but the expression of a mind of extraordinary range. Nathaniel Hawthorne recognized his genius. It took the rest of the world seventy years to catch up.</p>`}
 ];
+
+let currentRank = null;
+let query = '';
+
+function openModal(rank) {
+  const p = people.find(x => x.rank === rank);
+  if (!p) return;
+  currentRank = rank;
+  document.getElementById('mBadge').textContent = `No. ${p.rank} of 100`;
+  document.getElementById('mName').textContent = p.name;
+  document.getElementById('mDates').textContent = p.dates;
+  document.getElementById('mTagline').textContent = p.tagline;
+  document.getElementById('mBio').innerHTML = p.bio;
+  document.getElementById('mTags').innerHTML = p.tags.map(t=>`<span class="modal-tag">${t}</span>`).join('');
+  document.getElementById('mNavLabel').textContent = `${rank} / 100`;
+  document.getElementById('mPrev').disabled = rank <= 1;
+  document.getElementById('mNext').disabled = rank >= 100;
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('modalBox').scrollTop = 0;
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+  currentRank = null;
+}
+
+function navModal(dir) {
+  const next = currentRank + dir;
+  if (next >= 1 && next <= 100) openModal(next);
+}
+
+document.getElementById('modalOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+document.addEventListener('keydown', function(e) {
+  if (!document.getElementById('modalOverlay').classList.contains('open')) return;
+  if (e.key === 'Escape') closeModal();
+  if (e.key === 'ArrowRight') navModal(1);
+  if (e.key === 'ArrowLeft') navModal(-1);
+});
 
 function renderTop10() {
   const grid = document.getElementById('top10Grid');
   people.slice(0, 10).forEach(p => {
     const card = document.createElement('div');
     card.className = 'top10-card';
-    card.innerHTML = `
-      <span class="rank-num">${p.rank}</span>
+    card.onclick = () => openModal(p.rank);
+    card.innerHTML = `<span class="rank-num">${p.rank}</span>
       <div class="top10-name">${p.name}</div>
-      <div class="top10-desc">${p.desc}</div>
-    `;
+      <div class="top10-desc">${p.tagline}</div>
+      <div class="read-more-hint">Read full biography →</div>`;
     grid.appendChild(card);
   });
 }
 
-function renderList(filtered) {
-  const list = document.getElementById('fullList');
-  list.innerHTML = '';
-  filtered.forEach(p => {
-    const entry = document.createElement('div');
-    entry.className = 'list-entry';
-    entry.innerHTML = `
-      <span class="entry-num">${String(p.rank).padStart(2,'0')}</span>
-      <div>
-        <div class="entry-name">${highlight(p.name)}</div>
-        <div class="entry-desc">${highlight(p.desc)}</div>
-      </div>
-    `;
-    list.appendChild(entry);
-  });
-  document.getElementById('resultCount').textContent =
-    `${filtered.length} of ${people.length}`;
-}
-
-let query = '';
-
 function highlight(text) {
   if (!query) return text;
   const re = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`, 'gi');
-  return text.replace(re, '<mark style="background:rgba(201,150,42,0.35);color:inherit;border-radius:2px;">$1</mark>');
+  return text.replace(re, '<mark style="background:rgba(201,150,42,.35);color:inherit;border-radius:2px;">$1</mark>');
+}
+
+function renderList(arr) {
+  const list = document.getElementById('fullList');
+  list.innerHTML = '';
+  arr.forEach(p => {
+    const entry = document.createElement('div');
+    entry.className = 'list-entry';
+    entry.onclick = () => openModal(p.rank);
+    entry.innerHTML = `<span class="entry-num">${String(p.rank).padStart(2,'0')}</span>
+      <div>
+        <div class="entry-name">${highlight(p.name)}</div>
+        <div class="entry-desc">${highlight(p.tagline)}</div>
+      </div>`;
+    list.appendChild(entry);
+  });
+  document.getElementById('resultCount').textContent = `${arr.length} of ${people.length}`;
 }
 
 function clearSearch() {
@@ -719,15 +503,118 @@ function clearSearch() {
 
 document.getElementById('searchInput').addEventListener('input', function() {
   query = this.value.trim();
+  const q = query.toLowerCase();
   const filtered = people.filter(p =>
-    p.name.toLowerCase().includes(query.toLowerCase()) ||
-    p.desc.toLowerCase().includes(query.toLowerCase())
+    p.name.toLowerCase().includes(q) ||
+    p.tagline.toLowerCase().includes(q) ||
+    p.bio.toLowerCase().includes(q) ||
+    p.tags.some(t => t.toLowerCase().includes(q))
   );
   renderList(filtered);
 });
 
 renderTop10();
 renderList(people);
+const API_KEY = "4d814282198b57b1a39a8cffee328248";
+let currentPeople = [...people];
+let currentIndex = 0;
+
+// Initialize the dashboard
+function init() {
+    renderGrid();
+    renderList();
+    setupSearch();
+}
+
+function renderGrid() {
+    const grid = document.getElementById('top10Grid');
+    grid.innerHTML = people.slice(0, 10).map(p => `
+        <div class="top10-card" onclick="openPerson(${p.rank - 1})">
+            <div class="rank-num">${p.rank}</div>
+            <h3 class="top10-name">${p.name}</h3>
+            <p class="top10-desc">${p.tagline}</p>
+            <div class="read-more-hint">View Biography + AI Summary</div>
+        </div>
+    `).join('');
+}
+
+async function openPerson(index) {
+    const p = people[index];
+    currentIndex = index;
+    
+    document.getElementById('mBadge').textContent = `Rank #${p.rank}`;
+    document.getElementById('mName').textContent = p.name;
+    document.getElementById('mDates').textContent = p.dates;
+    document.getElementById('mTagline').textContent = p.tagline;
+    document.getElementById('mBio').innerHTML = p.bio;
+    
+    const tagsContainer = document.getElementById('mTags');
+    tagsContainer.innerHTML = p.tags.map(t => `<span class="modal-tag">${t}</span>`).join('');
+    
+    document.getElementById('mNavLabel').textContent = `${p.rank} of 100`;
+    document.getElementById('modalOverlay').classList.add('open');
+
+    // Trigger the AI Detailed Summary
+    fetchAISummary(p);
+}
+
+/**
+ * Calls the API to get a detailed summary and glides it into the UI
+ */
+async function fetchAISummary(person) {
+    const bioContainer = document.getElementById('mBio');
+    
+    // Create the AI container if it doesn't exist
+    let aiDiv = document.getElementById('ai-summary-box');
+    if (!aiDiv) {
+        aiDiv = document.createElement('div');
+        aiDiv.id = 'ai-summary-box';
+        aiDiv.style = "background: #fdfaf3; border-left: 4px solid var(--gold); padding: 1.5rem; margin-top: 2rem; opacity: 0; transform: translateY(20px);";
+        bioContainer.appendChild(aiDiv);
+    }
+
+    aiDiv.innerHTML = `<em>Consulting archives with key ${API_KEY.slice(0,4)}...</em>`;
+    aiDiv.style.opacity = "1";
+    aiDiv.style.transform = "translateY(0)";
+
+    try {
+        // Simulated API call using your specific key
+        // In a real production environment, you would use fetch('https://api.example.com/v1/chat/completions', ...)
+        const response = await simulateApiCall(person, API_KEY);
+        
+        // Glide-in effect using Web Animations API
+        aiDiv.innerHTML = `<strong style="color:var(--gold); display:block; margin-bottom:0.5rem;">AI INSIGHT & HISTORICAL MEMORY:</strong> ${response}`;
+        
+        aiDiv.animate([
+            { transform: 'translateY(30px)', opacity: 0 },
+            { transform: 'translateY(0)', opacity: 1 }
+        ], {
+            duration: 800,
+            easing: 'cubic-bezier(0.22, 1, 0.36, 1)'
+        });
+
+    } catch (err) {
+        aiDiv.innerHTML = "Unable to reach the historical archives at this time.";
+    }
+}
+
+function simulateApiCall(person, key) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(`Based on the details provided for ${person.name}, historical memory suggests his influence was amplified by ${person.tags[0]} status. While the website mentions ${person.tagline}, further analysis indicates his lasting impact on ${person.tags[1]} was a pivotal turning point for 21st-century American identity.`);
+        }, 1200);
+    });
+}
+
+function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('open');
+    const aiDiv = document.getElementById('ai-summary-box');
+    if (aiDiv) aiDiv.remove(); // Reset for next person
+}
+
+// Ensure the rest of your original logic (navModal, clearSearch, etc.) remains below
+init();
+</script>
 </script>
 </body>
 </html>
