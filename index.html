@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Top 100 — Most Influential Americans · The Atlantic, 2006</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1614;
+    --ink-mid: #3d3530;
+    --ink-light: #6b5f58;
+    --paper: #f5f0e8;
+    --paper-mid: #ede6d6;
+    --paper-dark: #d6cdb8;
+    --red: #8b1a1a;
+    --red-light: #b02020;
+    --gold: #c9962a;
+    --gold-light: #e8b84b;
+    --rule: #c8bfb0;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'EB Garamond', Georgia, serif;
+    background-color: var(--paper);
+    color: var(--ink);
+    font-size: 18px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── MASTHEAD ─── */
+  .masthead {
+    background: var(--ink);
+    padding: 2rem 2rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .masthead::before {
+    content: '';
+    display: block;
+    height: 3px;
+    background: linear-gradient(90deg, var(--red) 0%, var(--gold) 50%, var(--red) 100%);
+    margin-bottom: 1.5rem;
+  }
+
+  .pub-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 6vw, 4rem);
+    font-weight: 900;
+    letter-spacing: 0.35em;
+    color: var(--paper);
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+  }
+
+  .pub-tagline {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    color: var(--paper-dark);
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+  }
+
+  .issue-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 0.5px solid rgba(255,255,255,0.15);
+    border-bottom: 0.5px solid rgba(255,255,255,0.15);
+    padding: 0.5rem 0;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    color: var(--paper-dark);
+    text-transform: uppercase;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: var(--ink);
+    padding: 4rem 2rem 5rem;
+    text-align: center;
+    position: relative;
+  }
+
+  .hero-kicker {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .hero-kicker::before,
+  .hero-kicker::after {
+    content: '';
+    height: 1px;
+    width: 3rem;
+    background: var(--gold);
+    opacity: 0.5;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(4rem, 14vw, 10rem);
+    font-weight: 900;
+    line-height: 0.88;
+    color: var(--paper);
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero-subtitle {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
+    color: var(--paper-dark);
+    max-width: 520px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.5;
+  }
+
+  .hero-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    border-top: 0.5px solid rgba(255,255,255,0.1);
+    padding-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .hero-meta span { color: var(--paper-dark); }
+
+  /* ─── LEAD / ABSTRACT ─── */
+  .lead-section {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    text-align: center;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .lead-section p {
+    font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+    font-style: italic;
+    color: var(--ink-mid);
+    line-height: 1.75;
+  }
+
+  .ornament {
+    font-size: 2rem;
+    color: var(--red);
+    display: block;
+    margin: 1.5rem auto;
+    letter-spacing: 0.5rem;
+  }
+
+  /* ─── TOP 10 FEATURE ─── */
+  .top10-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--red);
+    white-space: nowrap;
+  }
+
+  .section-rule {
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  .top10-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--rule);
+  }
+
+  .top10-card {
+    padding: 2rem 2.5rem;
+    border-bottom: 1px solid var(--rule);
+    border-right: 1px solid var(--rule);
+    position: relative;
+    transition: background 0.2s ease;
+    cursor: default;
+  }
+
+  .top10-card:hover {
+    background: var(--paper-mid);
+  }
+
+  .top10-card:nth-child(even) {
+    border-right: none;
+  }
+
+  .top10-card:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+
+  .rank-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--paper-dark);
+    line-height: 1;
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    opacity: 0.6;
+  }
+
+  .top10-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+    padding-right: 3rem;
+  }
+
+  .top10-desc {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--ink-mid);
+    line-height: 1.6;
+  }
+
+  /* ─── FULL LIST ─── */
+  .list-section {
+    background: var(--ink);
+    padding: 5rem 2rem;
+  }
+
+  .list-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .list-header-row {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .list-section .section-label {
+    color: var(--gold);
+  }
+
+  .list-section .section-rule {
+    background: rgba(255,255,255,0.1);
+  }
+
+  .list-columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 0;
+  }
+
+  .list-entry {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    padding: 1.1rem 1.5rem;
+    border-bottom: 0.5px solid rgba(255,255,255,0.07);
+    border-right: 0.5px solid rgba(255,255,255,0.07);
+    transition: background 0.15s ease;
+    cursor: default;
+  }
+
+  .list-entry:hover {
+    background: rgba(255,255,255,0.04);
+  }
+
+  .entry-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--gold);
+    min-width: 2rem;
+    padding-top: 0.2rem;
+    opacity: 0.7;
+  }
+
+  .entry-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--paper);
+    line-height: 1.3;
+    margin-bottom: 0.25rem;
+  }
+
+  .entry-desc {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--paper-dark);
+    line-height: 1.5;
+    opacity: 0.8;
+  }
+
+  /* ─── SEARCH / FILTER ─── */
+  .filter-bar {
+    background: var(--paper-mid);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 1.5rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .filter-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .filter-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    white-space: nowrap;
+  }
+
+  #searchInput {
+    flex: 1;
+    font-family: 'EB Garamond', serif;
+    font-size: 1rem;
+    font-style: italic;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 0.5rem 1rem;
+    color: var(--ink);
+    outline: none;
+  }
+
+  #searchInput:focus { border-color: var(--red); }
+
+  #clearBtn {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: none;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 0.5rem 1rem;
+    color: var(--ink-light);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.15s;
+  }
+
+  #clearBtn:hover { border-color: var(--red); color: var(--red); }
+
+  #resultCount {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--ink-light);
+    white-space: nowrap;
+  }
+
+  /* ─── FOOTER ─── */
+  .site-footer {
+    background: var(--ink);
+    border-top: 3px solid var(--red);
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+
+  .footer-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--paper);
+    margin-bottom: 1rem;
+  }
+
+  .footer-text {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--paper-dark);
+    line-height: 1.7;
+    max-width: 400px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .footer-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+  }
+
+  /* ─── BACK TO TOP ─── */
+  .back-top {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    border: 1px solid rgba(201,150,42,0.3);
+    padding: 0.5rem 1.25rem;
+    border-radius: 2px;
+    margin-bottom: 2rem;
+    transition: all 0.15s;
+  }
+
+  .back-top:hover { background: rgba(201,150,42,0.1); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 640px) {
+    .top10-grid { grid-template-columns: 1fr; }
+    .top10-card:nth-child(even) { border-right: none; }
+    .top10-card:nth-last-child(-n+2) { border-bottom: 1px solid var(--rule); }
+    .top10-card:last-child { border-bottom: none; }
+    .list-columns { grid-template-columns: 1fr; }
+    .issue-bar { display: none; }
+    .hero-meta { flex-direction: column; gap: 0.5rem; }
+  }
+
+  @media (max-width: 480px) {
+    .filter-inner { flex-wrap: wrap; }
+    #resultCount { width: 100%; }
+  }
+
+  /* ─── ANIMATION ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-kicker  { animation: fadeUp 0.6s ease both; animation-delay: 0.1s; }
+  .hero-title   { animation: fadeUp 0.6s ease both; animation-delay: 0.25s; }
+  .hero-subtitle{ animation: fadeUp 0.6s ease both; animation-delay: 0.4s; }
+  .hero-meta    { animation: fadeUp 0.6s ease both; animation-delay: 0.55s; }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="masthead" id="top">
+  <div class="pub-name">The Atlantic</div>
+  <p class="pub-tagline">Of No Party or Clique</p>
+  <div class="issue-bar">
+    <span>Vol. 298 · Issue 5</span>
+    <span>December 2006</span>
+    <span>ISSN 1072-7825</span>
+    <span>Accession No. 23242618</span>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-kicker">Cover Story</p>
+  <h1 class="hero-title">The<br><em>Top</em><br>100</h1>
+  <p class="hero-subtitle">The most influential figures in American history — ranked, argued over, and presented for your disagreement.</p>
+  <div class="hero-meta">
+    <span>100 Americans</span>
+    <span>·</span>
+    <span>From Lincoln to Melville</span>
+    <span>·</span>
+    <span>The Definitive List</span>
+  </div>
+</section>
+
+<!-- LEAD -->
+<section class="lead-section">
+  <span class="ornament">✦ ✦ ✦</span>
+  <p>A list of the top 100 most influential figures in American history — from the president who saved the Union, to the inventor who lit the world, to the novelist who became the American Shakespeare.</p>
+  <span class="ornament">✦</span>
+</section>
+
+<!-- TOP 10 FEATURE -->
+<section class="top10-section">
+  <div class="section-header">
+    <span class="section-label">The Top Ten</span>
+    <div class="section-rule"></div>
+    <span class="section-label">Greatest Americans</span>
+  </div>
+
+  <div class="top10-grid" id="top10Grid"></div>
+</section>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="filter-inner">
+    <span class="filter-label">Search</span>
+    <input type="text" id="searchInput" placeholder="Find a name or description…" aria-label="Search the list">
+    <button id="clearBtn" onclick="clearSearch()">Clear</button>
+    <span id="resultCount">100 of 100</span>
+  </div>
+</div>
+
+<!-- FULL LIST -->
+<section class="list-section">
+  <div class="list-inner">
+    <div class="list-header-row">
+      <span class="section-label">The Full Ranking</span>
+      <div class="section-rule"></div>
+      <span class="section-label">Nos. 1 – 100</span>
+    </div>
+    <div class="list-columns" id="fullList" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <a href="#top" class="back-top">↑ Back to Top</a>
+  <div class="footer-title">The Atlantic</div>
+  <p class="footer-text">Originally published in the December 2006 issue. Retrieved via EBSCO Full Text, May 2026.</p>
+  <p class="footer-meta">© 2026 EBSCO Industries, Inc. · EBSCO, 10 Estes Street, Ipswich MA 01938</p>
+</footer>
+
+<script>
+const people = [
+  { rank: 1,   name: "Abraham Lincoln",          desc: "He saved the Union, freed the slaves, and presided over America's second founding." },
+  { rank: 2,   name: "George Washington",         desc: "He made the United States possible — not only by defeating a king, but by declining to become one himself." },
+  { rank: 3,   name: "Thomas Jefferson",          desc: "The author of the five most important words in American history: \"All men are created equal.\"" },
+  { rank: 4,   name: "Franklin Delano Roosevelt", desc: "He said, \"The only thing we have to fear is fear itself,\" and then he proved it." },
+  { rank: 5,   name: "Alexander Hamilton",        desc: "Soldier, banker, and political scientist, he set in motion an agrarian nation's transformation into an industrial power." },
+  { rank: 6,   name: "Benjamin Franklin",         desc: "The Founder-of-all-trades — scientist, printer, writer, diplomat, inventor, and more; like his country, he contained multitudes." },
+  { rank: 7,   name: "John Marshall",             desc: "The defining chief justice, he established the Supreme Court as the equal of the other two federal branches." },
+  { rank: 8,   name: "Martin Luther King Jr.",    desc: "His dream of racial equality is still elusive, but no one did more to make it real." },
+  { rank: 9,   name: "Thomas Edison",             desc: "It wasn't just the lightbulb; the Wizard of Menlo Park was the most prolific inventor in American history." },
+  { rank: 10,  name: "Woodrow Wilson",            desc: "He made the world safe for U.S. interventionism, if not for democracy." },
+  { rank: 11,  name: "John D. Rockefeller",       desc: "The man behind Standard Oil set the mold for our tycoons — first by making money, then by giving it away." },
+  { rank: 12,  name: "Ulysses S. Grant",          desc: "He was a poor president, but he was the general Lincoln needed; he also wrote the greatest political memoir in American history." },
+  { rank: 13,  name: "James Madison",             desc: "He fathered the Constitution and wrote the Bill of Rights." },
+  { rank: 14,  name: "Henry Ford",                desc: "He gave us the assembly line and the Model T, and sparked America's love affair with the automobile." },
+  { rank: 15,  name: "Theodore Roosevelt",        desc: "Whether busting trusts or building canals, he embodied the \"strenuous life\" and blazed a trail for twentieth-century America." },
+  { rank: 16,  name: "Mark Twain",                desc: "Author of our notional epic, he was the most unsentimental observer of our national life." },
+  { rank: 17,  name: "Ronald Reagan",             desc: "The amiable architect of both the conservative realignment and the Cold War's end." },
+  { rank: 18,  name: "Andrew Jackson",            desc: "The first great populist: he found America a republic and left it a democracy." },
+  { rank: 19,  name: "Thomas Paine",              desc: "The voice of the American Revolution, and our first great radical." },
+  { rank: 20,  name: "Andrew Carnegie",           desc: "The original self-made man forged America's industrial might and became one of the nation's greatest philanthropists." },
+  { rank: 21,  name: "Harry Truman",              desc: "An accidental president, this machine politician ushered in the Atomic Age and then the Cold War." },
+  { rank: 22,  name: "Walt Whitman",              desc: "He sang of America and shaped the country's conception of itself." },
+  { rank: 23,  name: "Wright Brothers",           desc: "They got us all off the ground." },
+  { rank: 24,  name: "Alexander Graham Bell",     desc: "By inventing the telephone, he opened the age of telecommunications and shrank the world." },
+  { rank: 25,  name: "John Adams",                desc: "His leadership made the American Revolution possible; his devotion to republicanism made it succeed." },
+  { rank: 26,  name: "Walt Disney",               desc: "The quintessential entertainer-entrepreneur, he wielded unmatched influence over our childhood." },
+  { rank: 27,  name: "Eli Whitney",               desc: "His gin made cotton king and sustained an empire for slavery." },
+  { rank: 28,  name: "Dwight Eisenhower",         desc: "He won a war and two elections, and made everybody like Ike." },
+  { rank: 29,  name: "Earl Warren",               desc: "His Supreme Court transformed American society and bequeathed to us the culture wars." },
+  { rank: 30,  name: "Elizabeth Cady Stanton",    desc: "One of the first great American feminists, she fought for social reform and women's right to vote." },
+  { rank: 31,  name: "Henry Clay",                desc: "One of America's greatest legislators and orators, he forged compromises that held off civil war for decades." },
+  { rank: 32,  name: "Albert Einstein",           desc: "His greatest scientific work was done in Europe, but his humanity earned him undying fame in America." },
+  { rank: 33,  name: "Ralph Waldo Emerson",       desc: "The bard of individualism, he relied on himself — and told us all to do the same." },
+  { rank: 34,  name: "Jonas Salk",                desc: "His vaccine for polio eradicated one of the world's worst plagues." },
+  { rank: 35,  name: "Jackie Robinson",           desc: "He broke baseball's color barrier and embodied integration's promise." },
+  { rank: 36,  name: "William Jennings Bryan",    desc: "\"The Great Commoner\" lost three presidential elections, but his populism transformed the country." },
+  { rank: 37,  name: "J. P. Morgan",              desc: "The great financier and banker was the prototype for all the Wall Street barons who followed." },
+  { rank: 38,  name: "Susan B. Anthony",          desc: "She was the country's most eloquent voice for women's equality under the law." },
+  { rank: 39,  name: "Rachel Carson",             desc: "The author of Silent Spring was godmother to the environmental movement." },
+  { rank: 40,  name: "John Dewey",                desc: "He sought to make the public school a training ground for democratic life." },
+  { rank: 41,  name: "Harriet Beecher Stowe",     desc: "Her Uncle Tom's Cabin inspired a generation of abolitionists and set the stage for civil war." },
+  { rank: 42,  name: "Eleanor Roosevelt",         desc: "She used the first lady's office and the mass media to become \"first lady of the world.\"" },
+  { rank: 43,  name: "W. E. B. Du Bois",          desc: "One of America's great intellectuals, he made the \"problem of the color line\" his life's work." },
+  { rank: 44,  name: "Lyndon Baines Johnson",     desc: "His brilliance gave us civil-rights laws; his stubbornness gave us Vietnam." },
+  { rank: 45,  name: "Samuel F. B. Morse",        desc: "Before the Internet, there was Morse code." },
+  { rank: 46,  name: "William Lloyd Garrison",    desc: "Through his newspaper, The Liberator, he became the voice of abolition." },
+  { rank: 47,  name: "Frederick Douglass",        desc: "After escaping from slavery, he pricked the nation's conscience with an eloquent accounting of its crimes." },
+  { rank: 48,  name: "Robert Oppenheimer",        desc: "The father of the atomic bomb and the regretful midwife of the nuclear era." },
+  { rank: 49,  name: "Frederick Law Olmsted",     desc: "The genius behind New York's Central Park, he inspired the greening of America's cities." },
+  { rank: 50,  name: "James K. Polk",             desc: "This one-term president's Mexican War land grab gave us California, Texas, and the Southwest." },
+  { rank: 51,  name: "Margaret Sanger",           desc: "The ardent champion of birth control — and of the sexual freedom that came with it." },
+  { rank: 52,  name: "Joseph Smith",              desc: "The founder of Mormonism, America's most famous homegrown faith." },
+  { rank: 53,  name: "Oliver Wendell Holmes Jr.", desc: "Known as \"The Great Dissenter,\" he wrote Supreme Court opinions that continue to shape American jurisprudence." },
+  { rank: 54,  name: "Bill Gates",                desc: "The Rockefeller of the Information Age, in business and philanthropy alike." },
+  { rank: 55,  name: "John Quincy Adams",         desc: "The Monroe Doctrine's real author, he set nineteenth-century America's diplomatic course." },
+  { rank: 56,  name: "Horace Mann",               desc: "His tireless advocacy of universal public schooling earned him the title \"The Father of American Education.\"" },
+  { rank: 57,  name: "Robert E. Lee",             desc: "He was a good general but a better symbol, embodying conciliation in defeat." },
+  { rank: 58,  name: "John C. Calhoun",           desc: "The voice of the antebellum South, he was slavery's most ardent defender." },
+  { rank: 59,  name: "Louis Sullivan",            desc: "The father of architectural modernism, he shaped the defining American building: the skyscraper." },
+  { rank: 60,  name: "William Faulkner",          desc: "The most gifted chronicler of America's tormented and fascinating South." },
+  { rank: 61,  name: "Samuel Gompers",            desc: "The country's greatest labor organizer, he made the golden age of unions possible." },
+  { rank: 62,  name: "William James",             desc: "The mind behind Pragmatism, America's most important philosophical school." },
+  { rank: 63,  name: "George Marshall",           desc: "As a general, he organized the American effort in World War II; as a statesman, he rebuilt Western Europe." },
+  { rank: 64,  name: "Jane Addams",               desc: "The founder of Hull House, she became the secular saint of social work." },
+  { rank: 65,  name: "Henry David Thoreau",       desc: "The original American dropout, he has inspired seekers of authenticity for 150 years." },
+  { rank: 66,  name: "Elvis Presley",             desc: "The king of rock and roll. Enough said." },
+  { rank: 67,  name: "P. T. Barnum",              desc: "The circus impresario's taste for spectacle paved the way for blockbuster movies and reality TV." },
+  { rank: 68,  name: "James D. Watson",           desc: "He codiscovered DNA's double helix, revealing the code of life to scientists and entrepreneurs alike." },
+  { rank: 69,  name: "James Gordon Bennett",      desc: "As the founding publisher of The New York Herald, he invented the modern American newspaper." },
+  { rank: 70,  name: "Lewis and Clark",           desc: "They went west to explore, and millions followed in their wake." },
+  { rank: 71,  name: "Noah Webster",              desc: "He didn't create American English, but his dictionary defined it." },
+  { rank: 72,  name: "Sam Walton",                desc: "He promised us \"Every Day Low Prices,\" and we took him up on the offer." },
+  { rank: 73,  name: "Cyrus McCormick",           desc: "His mechanical reaper spelled the end of traditional farming, and the beginning of industrial agriculture." },
+  { rank: 74,  name: "Brigham Young",             desc: "What Joseph Smith founded, Young preserved, leading the Mormons to their promised land." },
+  { rank: 75,  name: "George Herman \"Babe\" Ruth", desc: "He saved the national pastime in the wake of the Black Sox scandal — and permanently linked sports and celebrity." },
+  { rank: 76,  name: "Frank Lloyd Wright",        desc: "America's most significant architect, he was the archetype of the visionary artist at odds with capitalism." },
+  { rank: 77,  name: "Betty Friedan",             desc: "She spoke to the discontent of housewives everywhere — and inspired a revolution in gender roles." },
+  { rank: 78,  name: "John Brown",                desc: "Whether a hero, a fanatic, or both, he provided the spark for the Civil War." },
+  { rank: 79,  name: "Louis Armstrong",           desc: "His talent and charisma took jazz from the cathouses of Storyville to Broadway, television, and beyond." },
+  { rank: 80,  name: "William Randolph Hearst",   desc: "The press baron who perfected yellow journalism and helped start the Spanish-American War." },
+  { rank: 81,  name: "Margaret Mead",             desc: "With Coming of Age in Samoa, she made anthropology relevant — and controversial." },
+  { rank: 82,  name: "George Gallup",             desc: "He asked Americans what they thought, and the politicians listened." },
+  { rank: 83,  name: "James Fenimore Cooper",     desc: "The novels are unreadable, but he was the first great mythologizer of the frontier." },
+  { rank: 84,  name: "Thurgood Marshall",         desc: "As a lawyer and a Supreme Court justice, he was the legal architect of the civil-rights revolution." },
+  { rank: 85,  name: "Ernest Hemingway",          desc: "His spare style defined American modernism, and his life made machismo a cliché." },
+  { rank: 86,  name: "Mary Baker Eddy",           desc: "She got off her sickbed and founded Christian Science, which promised spiritual healing to all." },
+  { rank: 87,  name: "Benjamin Spock",            desc: "With a single book — and a singular approach — he changed American parenting." },
+  { rank: 88,  name: "Enrico Fermi",              desc: "A giant of physics, he helped develop quantum theory and was instrumental in building the atomic bomb." },
+  { rank: 89,  name: "Walter Lippmann",           desc: "The last man who could swing an election with a newspaper column." },
+  { rank: 90,  name: "Jonathan Edwards",          desc: "Forget the fire and brimstone: his subtle eloquence made him the country's most influential theologian." },
+  { rank: 91,  name: "Lyman Beecher",             desc: "Harriet Beecher Stowe's clergyman father earned fame as an abolitionist and an evangelist." },
+  { rank: 92,  name: "John Steinbeck",            desc: "As the creator of Tom Joad, he chronicled Depression-era misery." },
+  { rank: 93,  name: "Nat Turner",                desc: "He was the most successful rebel slave; his specter would stalk the white South for a century." },
+  { rank: 94,  name: "George Eastman",            desc: "The founder of Kodak democratized photography with his handy rolls of film." },
+  { rank: 95,  name: "Sam Goldwyn",               desc: "A producer for forty years, he was the first great Hollywood mogul." },
+  { rank: 96,  name: "Ralph Nader",               desc: "He made the cars we drive safer; thirty years later, he made George W. Bush the president." },
+  { rank: 97,  name: "Stephen Foster",            desc: "America's first great songwriter, he brought us \"O! Susanna\" and \"My Old Kentucky Home.\"" },
+  { rank: 98,  name: "Booker T. Washington",      desc: "As an educator and a champion of self-help, he tried to lead black America up from slavery." },
+  { rank: 99,  name: "Richard Nixon",             desc: "He broke the New Deal majority, and then broke his presidency on a scandal that still haunts America." },
+  { rank: 100, name: "Herman Melville",           desc: "Moby Dick was a flop at the time, but Melville is remembered as the American Shakespeare." },
+];
+
+function renderTop10() {
+  const grid = document.getElementById('top10Grid');
+  people.slice(0, 10).forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'top10-card';
+    card.innerHTML = `
+      <span class="rank-num">${p.rank}</span>
+      <div class="top10-name">${p.name}</div>
+      <div class="top10-desc">${p.desc}</div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+function renderList(filtered) {
+  const list = document.getElementById('fullList');
+  list.innerHTML = '';
+  filtered.forEach(p => {
+    const entry = document.createElement('div');
+    entry.className = 'list-entry';
+    entry.innerHTML = `
+      <span class="entry-num">${String(p.rank).padStart(2,'0')}</span>
+      <div>
+        <div class="entry-name">${highlight(p.name)}</div>
+        <div class="entry-desc">${highlight(p.desc)}</div>
+      </div>
+    `;
+    list.appendChild(entry);
+  });
+  document.getElementById('resultCount').textContent =
+    `${filtered.length} of ${people.length}`;
+}
+
+let query = '';
+
+function highlight(text) {
+  if (!query) return text;
+  const re = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`, 'gi');
+  return text.replace(re, '<mark style="background:rgba(201,150,42,0.35);color:inherit;border-radius:2px;">$1</mark>');
+}
+
+function clearSearch() {
+  query = '';
+  document.getElementById('searchInput').value = '';
+  renderList(people);
+}
+
+document.getElementById('searchInput').addEventListener('input', function() {
+  query = this.value.trim();
+  const filtered = people.filter(p =>
+    p.name.toLowerCase().includes(query.toLowerCase()) ||
+    p.desc.toLowerCase().includes(query.toLowerCase())
+  );
+  renderList(filtered);
+});
+
+renderTop10();
+renderList(people);
+</script>
+</body>
+</html>
